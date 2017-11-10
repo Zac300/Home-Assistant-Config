@@ -1,0 +1,670 @@
+#Make to magic happen
+- alias: Flic All Lights Off
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7186ac
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72df36
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7214b0
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da720c19
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725cb4
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725be5
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725c4d
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7252d2
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7325cb
+        click_type: hold
+  condition:
+    condition: state
+    entity_id: input_boolean.all_lights
+    state: 'on'
+  action:
+    service: script.all_turn_off
+- alias: Flic All Lights On
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7186ac
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72df36
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7214b0
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da720c19
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725cb4
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725be5
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725c4d
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7252d2
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7325cb
+        click_type: hold
+  condition:
+    condition: state
+    entity_id: input_boolean.all_lights
+    state: 'off'
+  action:
+    service: script.all_turn_on
+- alias: Toggle lights in hallway if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725cb4
+        click_type: single
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da720c19
+        click_type: single
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7325cb
+        click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.hallway
+- alias: Toggle Cabinet if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7186ac
+        click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.cabinet
+- alias: Toggle TV if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72df36
+        click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.tv
+- alias: Toggle Corner Lamp if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7214b0
+        click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.corner_lamp
+- alias: Toggle Lounge if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725be5
+        click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.lounge
+- alias: Toggle Kitchen Sink if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725c4d
+        click_type: single
+  action:
+    service: light.toggle
+    entity_id: group.kitchen_sink
+- alias: Toggle Bedroom if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7252d2
+        click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.bedroom
+- alias: Flic Bedroom Selector (Bedroom)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: hold
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.bedside_lamp_selected
+      state: 'on'
+  action:
+    service: script.select_bedroom
+- alias: Flic Bedroom Selector (Bedside Lamp)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: hold
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.bedroom_selected
+      state: 'on'
+  action:
+    service: script.select_bedside_lamp
+- alias: Flic Bedroom Toggle (Bedside Lamp)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: single
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: single
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.bedside_lamp_selected
+      state: 'on'
+  action:
+    service: light.toggle
+    entity_id: light.bedside_lamp
+- alias: Flic Bedroom Toggle (Bedroom)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: single
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: single
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.bedroom_selected
+      state: 'on'
+  action:
+    service: light.toggle
+    entity_id: light.bedroom
+- alias: Flic Lounge Selector (Hallway)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733498
+        click_type: hold
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.lounge_selected
+      state: 'on'
+  action:
+    service: script.select_hallway
+- alias: Flic Lounge Selector (Lounge)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733498
+        click_type: hold
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.hallway_selected
+      state: 'on'
+  action:
+    service: script.select_lounge
+- alias: Flic Lounge Toggle (Hallway)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733498
+        click_type: single
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.hallway_selected
+      state: 'on'
+  action:
+    service: light.toggle
+    entity_id: light.hallway
+- alias: Flic Lounge Toggle (Lounge)
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733498
+        click_type: single
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.lounge_selected
+      state: 'on'
+  action:
+    service: light.toggle
+    entity_id: light.lounge
+- alias: Change Hallway Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.hallway_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hallway
+        transition: 0.5
+        brightness: '{{ ((states.input_number.hallway_brightness.state | int *2.5)) | int }}'
+- alias: Toggle Hallway Brightness if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725cb4
+        click_type: double
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da720c19
+        click_type: double
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7325cb
+        click_type: double
+  action:
+    service: input_number.set_value
+    entity_id: input_number.hallway_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.hallway_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.hallway_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Change Cabinet Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.cabinet_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.cabinet
+        transition: 0.5
+        brightness: '{{ ((states.input_number.cabinet_brightness.state | int *2.5)) | int }}'
+- alias: Toggle Cabinet Brightness if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7186ac
+        click_type: double
+  action:
+    service: input_number.set_value
+    entity_id: input_number.cabinet_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.cabinet_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.cabinet_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Change TV Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.tv_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tv
+        transition: 0.5
+        brightness: '{{ ((states.input_number.tv_brightness.state | int *2.5)) | int }}'
+- alias: Toggle TV Brightness if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da72df36
+        click_type: double
+  action:
+    service: input_number.set_value
+    entity_id: input_number.tv_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.tv_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.tv_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Change Corner Lamp Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.corner_lamp_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.corner_lamp
+        transition: 0.5
+        brightness: '{{ ((states.input_number.corner_lamp_brightness.state | int *2.5)) | int }}'
+- alias: Toggle Corner Lamp Brightness if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7214b0
+        click_type: double
+  action:
+    service: input_number.set_value
+    entity_id: input_number.corner_lamp_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.corner_lamp_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.corner_lamp_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Change Lounge Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.lounge_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.lounge
+        transition: 0.5
+        brightness: '{{ ((states.input_number.lounge_brightness.state | int *2.5)) | int }}'
+- alias: Toggle Hallway Brightness if Lounge flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733498
+        click_type: double
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.hallway_selected
+      state: 'on'
+  action:
+    service: input_number.set_value
+    entity_id: input_number.hallway_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.hallway_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.hallway_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Toggle Lounge Brightness if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725be5
+        click_type: double
+  action:
+    service: input_number.set_value
+    entity_id: input_number.lounge_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.lounge_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.lounge_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Toggle Lounge Brightness if Lounge flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733498
+        click_type: double
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.lounge_selected
+      state: 'on'
+  action:
+    service: input_number.set_value
+    entity_id: input_number.lounge_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.lounge_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.lounge_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Change Kitchen Sink Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.kitchen_sink_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: group.kitchen_sink
+        transition: 0.5
+        brightness: '{{ ((states.input_number.kitchen_sink_brightness.state | int *2.5)) | int }}'
+- alias: Toggle Kitchen Sink Brightness if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da725c4d
+        click_type: double
+  action:
+    service: input_number.set_value
+    entity_id: input_number.kitchen_sink_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.kitchen_sink_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.kitchen_sink_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Change Bedroom Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.bedroom_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bedroom
+        transition: 0.5
+        brightness: '{{ ((states.input_number.bedroom_brightness.state | int *2.5)) | int }}'
+- alias: Toggle Bedroom Brightness if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7252d2
+        click_type: double
+  action:
+    service: input_number.set_value
+    entity_id: input_number.bedroom_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.bedroom_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.bedroom_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Toggle Bedroom Brightness if Bedside flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: double
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: double
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.bedroom_selected
+      state: 'on'
+  action:
+    service: input_number.set_value
+    entity_id: input_number.bedroom_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.bedroom_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.bedroom_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Change Bedside Lamp Brightness
+  trigger:
+    - platform: state
+      entity_id: input_number.bedside_lamp_brightness
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bedside_lamp
+        transition: 0.5
+        brightness: '{{ ((states.input_number.bedside_lamp_brightness.state | int *2.5)) | int }}'
+- alias: Toggle Bedside Lamp Brightness if Bedside flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: double
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: double
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.bedside_lamp_selected
+      state: 'on'
+  action:
+    service: input_number.set_value
+    entity_id: input_number.bedside_lamp_brightness
+    data_template:
+      value: >-
+        {% if states.input_number.bedside_lamp_brightness.state | int > 80 %}
+           {{ 20 | int }}
+        {% else %}
+           {{ ((states.input_number.bedside_lamp_brightness.state | int + 20)) | int }}
+        {% endif %}
+- alias: Enable Arlo Living Room upon phones leaving
+  trigger:
+    platform: state
+    entity_id: device_tracker.accf85b4c3bf
+    from: 'home'
+    to: 'not_home'
+  action:
+    service: camera.enable_motion_detection
+    entity_id: camera.arlo_living_room
+- alias: Disable Arlo Living Room upon phones arriving
+  trigger:
+    platform: state
+    entity_id: device_tracker.accf85b4c3bf
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: camera.disable_motion_detection
+    entity_id: camera.arlo_living_room
+- alias: Update notifications
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.pushbullet
+    data_template: 
+      title: 'New Home Assistant Release'
+      target: 'channel/homeassistantupdates'
+      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
