@@ -1,0 +1,10 @@
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  monitored_conditions:
+    - weather_1d_metric
+    - weather_2d_metric
+    - weather_3d_metric
+    - weather_4d_metric
+    - temp_c
+    - temp_high_1d_c
+    - temp_low_1d_c

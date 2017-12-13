@@ -1,0 +1,23 @@
+- platform: broadlink
+  host: !secret broadlink_pro_host
+  mac: !secret broadlink_pro_mac
+  timeout: 15
+  friendly_name: RM Pro
+  switches:
+    # Arlec Switches
+    arlec_switch_1:
+      friendly_name: "Arlec Switch 1"
+      command_on: !secret switch_arlec_1_command_on
+      command_off: !secret switch_arlec_1_command_off
+    arlec_switch_2:
+      friendly_name: "Arlec Switch 2"
+      command_on: !secret switch_arlec_2_command_on
+      command_off: !secret switch_arlec_2_command_off
+    soundbar_toggle_input:
+      friendly_name: "Soundbar Toggle Input"
+      command_on: !secret switch_soundbar_toggle_input_command_on
+- platform: broadlink
+  host: !secret broadlink_mini_host
+  mac: !secret broadlink_mini_mac
+  timeout: 15
+  friendly_name: RM Mini

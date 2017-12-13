@@ -1,0 +1,2 @@
+- platform: plex
+  host: !secret plex_host

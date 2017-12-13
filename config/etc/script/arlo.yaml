@@ -1,0 +1,10 @@
+disable_living_room_camera:
+  sequence:
+    - service: camera.disable_motion_detection
+      data:
+        entity_id: camera.living_room
+enable_living_room_camera:
+  sequence:
+    - service: camera.enable_motion_detection
+      data:
+        entity_id: camera.living_room

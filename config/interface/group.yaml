@@ -1,0 +1,212 @@
+## VIEWS ##
+dashboard:
+  name: Dashboard
+  view: yes
+  icon: mdi:view-dashboard-variant
+  entities:
+    - group.all_lights
+    - group.weather_overview
+    - climate.sharp_split_system
+arlo_view:
+  name: Arlo
+  view: yes
+  icon: mdi:video
+  entities:
+    - group.arlo
+switch_view:
+  name: Switches
+  view: yes
+  icon: mdi:power
+  entities:
+    - group.all_switches
+    - climate.sharp_split_system
+download_view:
+  name: Download
+  view: yes
+  icon: mdi:cloud-download
+  entities:
+    - group.sonarr
+    - group.radarr
+    - group.sabnzbd
+    - group.transmission
+cast_view:
+  name: Cast
+  view: yes
+  icon: mdi:cast
+  entities:
+    - media_player.kitchen_assistant
+    - media_player.kitchen_speaker
+    - media_player.lounge_assistant
+    - media_player.lounge_n_living_speakers
+    - media_player.lounge_soundbar
+## FLIC GROUP ##
+flic:
+  name: Flic
+  entities:
+   - binary_sensor.flic_80e4da7186ac
+   - binary_sensor.flic_80e4da72df36
+   - binary_sensor.flic_80e4da7214b0
+   - binary_sensor.flic_80e4da720c19
+   - binary_sensor.flic_80e4da725cb4
+   - binary_sensor.flic_80e4da725be5
+   - binary_sensor.flic_80e4da733498
+   - binary_sensor.flic_80e4da725c4d
+   - binary_sensor.flic_80e4da7252d2
+   - binary_sensor.flic_80e4da72742d
+   - binary_sensor.flic_80e4da732c8a
+   - binary_sensor.flic_80e4da733454
+   - binary_sensor.flic_80e4da7325cb
+## LIGHT GROUPS ##
+lounge_hall:
+  name: Lounge n Hall
+  entities:
+   - light.hallway
+   - light.lounge
+   - light.corner_lamp
+   - light.tv
+   - light.cabinet
+   - light.window
+   - device_tracker.lounge_lg_tv
+   - device_tracker.lounge_chromecast_tv
+   - device_tracker.lounge_chromecast_soundbar
+   - device_tracker.lounge_google_home
+kitchen_sink:
+ name: Kitchen Sink
+ entities:
+  - light.sink_left
+  - light.sink_centre
+  - light.sink_right
+kitchen_living:
+ name: Kitchen n Living
+ entities:
+  - device_tracker.kitchen_google_home
+  - light.sink_left
+  - light.sink_centre
+  - light.sink_right
+  - device_tracker.elgato_eyetv
+  - device_tracker.living_chromecast_tv
+  - device_tracker.bw_a7
+  - device_tracker.kitchen_chromecast_speaker
+bedroom:
+ name: Bedroom
+ entities:
+  - light.bedside_lamp
+  - light.bedroom
+all_lights:
+ name: All Lights
+ entities:
+  - light.sink_left
+  - light.sink_centre
+  - light.sink_right
+  - light.tv
+  - light.cabinet
+  - light.corner_lamp
+  - light.lounge
+  - light.hallway
+  - light.window
+  - light.bedroom
+  - light.bedside_lamp
+arlo:
+ name: Arlo
+ entities:
+  - alarm_control_panel.home
+  - sensor.arlo_cameras
+  - sensor.battery_level_living_room
+  - sensor.signal_strength_living_room
+  - sensor.captured_today_living_room
+  - sensor.last_living_room
+  - sensor.battery_level_shed
+  - sensor.signal_strength_shed
+  - sensor.captured_today_shed
+  - sensor.last_shed
+  - sensor.battery_level_backyard
+  - sensor.signal_strength_backyard
+  - sensor.captured_today_backyard
+  - sensor.last_backyard
+  - sensor.battery_level_frontyard
+  - sensor.signal_strength_frontyard
+  - sensor.captured_today_frontyard
+  - sensor.last_frontyard
+  - camera.living_room
+  - camera.shed
+  - camera.backyard
+  - camera.frontyard
+### WEATHER GROUPS ###
+weather_overview:
+  name: Weather overview
+  entities:
+    - sensor.pws_weather_1d_metric
+    - sensor.pws_temp_low_1d_c
+    - sensor.pws_temp_high_1d_c
+    - sensor.pws_temp_c
+daily_forecast:
+  name: Daily Forecast
+  entities:
+    - sensor.pws_weather_1d_metric
+    - sensor.pws_weather_2d_metric
+    - sensor.pws_weather_3d_metric
+    - sensor.pws_weather_4d_metric
+### SONARR GROUP ###
+sonarr:
+  name: Sonarr
+  entities:
+    - sensor.sonarr_series
+    - sensor.sonarr_upcoming
+    - sensor.sonarr_wanted
+    - sensor.sonarr_queue
+    - sensor.sonarr_commands
+    - sensor.sonarr_disk_space
+### RADARR GROUP ###
+radarr:
+  name: Radarr
+  entities:
+    - sensor.radarr_movies
+    - sensor.radarr_upcoming
+    - sensor.radarr_status
+    - sensor.radarr_commands
+    - sensor.radarr_disk_space
+### SABNZBD GROUP ###
+sabnzbd:
+  name: SABnzbd
+  entities:
+    - sensor.sabnzbd_status
+    - sensor.sabnzbd_speed
+    - sensor.sabnzbd_queue
+    - sensor.sabnzbd_left
+    - sensor.sabnzbd_disk
+    - sensor.sabnzbd_disk_free
+### TRANSMISSION GROUP ###
+transmission:
+  name: Transmission
+  entities:
+    - sensor.transmission_active_torrents
+    - sensor.transmission_down_speed
+    - sensor.transmission_status
+    - sensor.transmission_up_speed
+### SPEEDTEST GROUP ###
+speedtest:
+  name: Speedtest
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+### SYSTEMMONITOR GROUP ###
+systemmonitor:
+  name: System monitor
+  entities:
+    - sensor.cpu_used
+    - sensor.disk_free_
+    - sensor.disk_used_
+    - sensor.disk_used__2
+    - sensor.ram_available
+    - sensor.ram_used
+    - sensor.ram_used_2
+    - sensor.received_enxb827eb6629fc
+    - sensor.sent_enxb827eb6629fc
+    - sensor.last_boot
+    - sensor.since_last_boot
+all_switches:
+  name: Switch
+  entities:
+    - switch.arlec_switch_1
+    - switch.arlec_switch_2

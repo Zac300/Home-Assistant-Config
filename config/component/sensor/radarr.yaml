@@ -1,0 +1,11 @@
+- platform: radarr
+  api_key: !secret radarr_api_key
+  host: !secret radarr_host
+  port: !secret radarr_port
+  urlbase: !secret radarr_urlbase
+  monitored_conditions:
+    - movies
+    - upcoming
+    - status
+    - commands
+    - diskspace

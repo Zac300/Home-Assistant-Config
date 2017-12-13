@@ -1,0 +1,15 @@
+all_lights:
+  name: All Lights On/Off
+  initial: off
+bedside_lamp_selected:
+  name: Bedside Lamp Selected
+  initial: on
+bedroom_selected:
+  name: Bedroom Light Selected
+  initial: off
+lounge_selected:
+  name: Lounge Selected
+  initial: on
+hallway_selected:
+  name: Hallway Light Selected
+  initial: off

@@ -1,0 +1,33 @@
+switch.arlec_switch_1:
+  google_assistant: true
+  google_assistant_name: Christmas Tree
+  google_assistant_type: light
+switch.arlec_switch_2:
+  google_assistant: true
+  google_assistant_name: Fairy Lights
+  google_assistant_type: light
+switch.soundbar_toggle_input:
+  google_assistant: false
+climate.sharp_split_system:
+  google_assistant: true
+  google_assistant_name: Sharp Split System
+  google_assistant_type: climate
+  aliases:
+    - Living Room Air Conditioner
+    - Living Room A C
+    - Split System
+script.watch_tv:
+  google_assistant: true
+  google_assistant_name: Watch TV
+  google_assistant_type: script
+  aliases:
+    - Watch a movie
+    - Couch time
+    - Time to relax
+script.bedtime:
+  google_assistant: true
+  google_assistant_name: Bedtime
+  google_assistant_type: script
+  aliases:
+    - Time to sleep
+    - Go to bed

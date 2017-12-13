@@ -1,0 +1,21 @@
+read_weather_overview:
+  sequence:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.kitchen_speaker
+        volume_level: 0.4
+    - service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data_template:
+        message: >
+          {% if now().strftime("%H")|int < 12 %}
+          Good morning.
+          {% elif now().strftime("%H")|int < 18 %}
+          Good afternoon.
+          {% else %}
+          Good evening.
+          {% endif %}
+          It's currently {{states.sensor.pws_temp_c.state|round|int}} degrees with a forecast of {{states.sensor.pws_weather_1d_metric.state}}
+          {% if states.binary_sensor.workday_sensor.state == 'on' and states.sensor.work_travel_time.state|int > 30 %}
+          Be advised the travel time to work is {{states.sensor.work_travel_time.state|int}} minutes today.
+          {% endif %}

@@ -1,0 +1,48 @@
+hallway_brightness:
+  name: Hallway Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10
+cabinet_brightness:
+  name: Cabinet Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10
+tv_brightness:
+  name: TV Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10
+lounge_brightness:
+  name: Lounge Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10
+corner_lamp_brightness:
+  name: Corner Lamp Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10
+kitchen_sink_brightness:
+  name: Kitchen Sink Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10
+bedroom_brightness:
+  name: Bedroom Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10
+bedside_lamp_brightness:
+  name: Bedside Lamp Brightness
+  initial: 50
+  min: 0
+  max: 100
+  step: 10

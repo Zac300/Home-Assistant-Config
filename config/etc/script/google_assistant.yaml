@@ -1,0 +1,33 @@
+watch_tv:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.lounge_hall
+    - service: light.turn_on
+      data:
+        entity_id: light.window
+    - service: light.turn_on
+      data:
+        entity_id: light.tv
+    - service: broadlink.send_packet_10_0_0_168
+      data:
+        packet: 
+          - !secret switch_arlec_1_command_on
+          - !secret switch_arlec_2_command_on
+bedtime:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.lounge_hall
+    - service: light.turn_on
+      data:
+        entity_id: light.hallway
+        brightness: 65
+    - service: light.turn_on
+      data:
+        entity_id: light.bedside_lamp
+    - service: broadlink.send_packet_10_0_0_168
+      data:
+        packet:
+          - !secret switch_arlec_1_command_off
+          - !secret switch_arlec_2_command_off

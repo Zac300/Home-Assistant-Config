@@ -1,0 +1,6 @@
+- alias: 'Update Google Assistant'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+   - service: google_assistant.request_sync

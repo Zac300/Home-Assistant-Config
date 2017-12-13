@@ -1,6 +1,10 @@
-*
-!*.yaml
-!scenes
-!.gitignore
+*.log
+*.conf
 secrets.yaml
 known_devices.yaml
+config/component/tts/*.mp3
+*.pyc
+deps
+www
+panels
+config/component/climate/broadlink_climate_codes

@@ -1,0 +1,6 @@
+- platform: broadlink
+  update_interval: 60
+  host: !secret broadlink_pro_host
+  mac: !secret broadlink_pro_mac
+  monitored_conditions:
+    - temperature

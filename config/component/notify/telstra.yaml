@@ -1,0 +1,5 @@
+- platform: telstra
+  name: telstra
+  consumer_key: !secret telstra_consumer_key
+  consumer_secret: !secret telstra_consumer_secret
+  phone_number: !secret telstra_phone_number

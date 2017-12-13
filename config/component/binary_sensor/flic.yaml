@@ -1,0 +1,4 @@
+- platform: flic
+  host: !secret flic_host
+  port: !secret flic_port
+  discovery: true

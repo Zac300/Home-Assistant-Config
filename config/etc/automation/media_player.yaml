@@ -1,0 +1,10 @@
+- alias: Morning news
+  trigger:
+    platform: time
+    at: '07:00:00'
+  condition:
+    - condition: state
+      entity_id: light.sink_centre
+      state: 'on'
+  action:
+    service: script.read_weather_overview
