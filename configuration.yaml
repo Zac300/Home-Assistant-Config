@@ -1,303 +1,55 @@
-homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: !secret home_elevation
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: !secret home_time_zone
-  # Customization file
-  customize: !include customize.yaml
+#########################################
+#The main configuration.yaml - see my   #
+#README.md for information on how I have#
+#structured and organised this file     #
+#and the !include files that it links to#
+#########################################
 
-# Enables the frontend
+##################
+## Core program ##
+##################
+homeassistant: !include config/core/homeassistant.yaml
+logger: !include config/core/logger.yaml
+
+###################################
+## Web interface UX and security ##
+###################################
 frontend:
-
-# Enables configuration UI
 config:
-
-map:
-
-http:
-  # Uncomment this to add a password (recommended!)
-  # api_password: PASSWORD
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
-
-# Discover some devices automatically
-discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
-# Enables support for tracking state changes over time
+group: !include config/interface/group.yaml
+http: !include config/interface/http.yaml
 history:
+logbook: !include config/interface/logbook.yaml
+discovery:
+panel_custom: !include config/interface/panel_custom.yaml
+zone: !include config/interface/zone.yaml
 
-# View all events in a logbook
-logbook:
-
-# Floorplan
-panel_custom:
-  name: floorplan
-  sidebar_title: Floorplan
-  sidebar_icon: mdi:home
-  url_path: floorplan
-  config: !include floorplan.yaml
-
-# Arlo Surveilance
+#######################################
+## My components/devices/sensors/etc ##
+#######################################
+updater:
+  include_used_components: true
 arlo:
   username: !secret arlo_username
   password: !secret arlo_password
-
 ffmpeg:
+camera: !include_dir_merge_list config/component/camera
+alarm_control_panel: !include_dir_merge_list config/component/alarm_control_panel
+sensor: !include_dir_merge_list config/component/sensor
+switch: !include_dir_merge_list config/component/switch
+climate: !include_dir_merge_list config/component/climate
+tts: !include_dir_merge_list config/component/tts
+light: !include_dir_merge_list config/component/light
+media_player: !include_dir_merge_list config/component/media_player
+device_tracker: !include_dir_merge_list config/component/device_tracker
+binary_sensor: !include_dir_merge_list config/component/binary_sensor
+notify: !include_dir_merge_list config/component/notify
+google_assistant: !include_dir_merge_named config/component/google_assistant
 
-camera:
-  - platform: arlo
-    ffmpeg_arguments: '-pred 1 -q:v 2'
-
-alarm_control_panel:
-  - platform: arlo
-    home_mode_name: 'Home'
-
-mqtt:
-  broker: !secret mqtt_broker
-  port: !secret mqtt_port
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-
-sensor:
-  - platform: arlo
-    monitored_conditions:
-      - captured_today
-  - platform: wunderground
-    api_key: !secret wunderground_api_key
-    monitored_conditions:
-      - weather_1d_metric
-      - weather_2d_metric
-      - weather_3d_metric
-      - weather_4d_metric
-      - temp_c
-      - temp_high_1d_c
-      - temp_low_1d_c
-  - platform: cert_expiry
-    host: !secret cert_expiry_host
-    port: !secret cert_expiry_port
-    name: Wildcard Certificate Expiry
-  - platform: google_travel_time
-    api_key: !secret google_travel_time_api_key
-    origin: !secret google_travel_time_origin
-    destination: !secret google_travel_time_destination
-  - platform: sonarr
-    api_key: !secret sonarr_api_key
-    host: !secret sonarr_host
-    port: !secret sonarr_port
-    urlbase: !secret sonarr_urlbase
-    monitored_conditions:
-      - series
-      - upcoming
-      - wanted
-      - queue
-      - commands
-      - diskspace
-  - platform: radarr
-    api_key: !secret radarr_api_key
-    host: !secret radarr_host
-    port: !secret radarr_port
-    urlbase: !secret radarr_urlbase
-    monitored_conditions:
-      - movies
-      - upcoming
-      - status
-      - commands
-      - diskspace
-  - platform: sabnzbd
-    api_key: !secret sabnzbd_api_key
-    host: !secret sabnzbd_host
-    port: !secret sabnzbd_port
-    monitored_variables:
-      - 'current_status'
-      - 'speed'
-      - 'queue_size'
-      - 'queue_remaining'
-      - 'disk_size'
-      - 'disk_free'
-  - platform: transmission
-    host: !secret transmission_host
-    port: !secret transmission_port
-    monitored_variables:
-      - 'current_status'
-      - 'download_speed'
-      - 'upload_speed'
-      - 'active_torrents'
-  - platform: plex
-    host: !secret plex_host
-  - platform: speedtest
-    minute:
-     - 0
-     - 30
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-  - platform: systemmonitor
-    resources:
-    - type: disk_use_percent
-      arg: /
-    - type: disk_use
-      arg: /
-    - type: disk_free
-      arg: /
-    - type: memory_use_percent
-    - type: memory_use
-    - type: memory_free
-    - type: processor_use
-    - type: last_boot
-    - type: since_last_boot
-    - type: network_in
-      arg: !secret systemmonitor_network_interface
-    - type: network_out
-      arg: !secret systemmonitor_network_interface
-  - platform: version
-  - platform: uptime
-  - platform: haveibeenpwned
-    email:
-      - !secret haveibeenpwned_email_0
-      - !secret haveibeenpwned_email_1
-      - !secret haveibeenpwned_email_2
-      - !secret haveibeenpwned_email_3
-      - !secret haveibeenpwned_email_4
-      - !secret haveibeenpwned_email_5
-      - !secret haveibeenpwned_email_6
-      - !secret haveibeenpwned_email_7
-
-# Text to speech
-tts:
-  - platform: google
-  
-# LIFX
-light:
-  - platform: lifx
-
-# Plex
-media_player:
-  - platform: plex
-
-#OpenWrt
-device_tracker:
-  - platform: luci
-    host: !secret luci_host
-    username: !secret luci_username
-    password: !secret luci_password
-    interval_seconds: 10
-    consider_home: 20
-    track_new_devices: true
-  - platform: owntracks
-    max_gps_accuracy: 200
-
-#Flic
-binary_sensor:
-  - platform: flic
-    host: !secret flic_host
-    port: !secret flic_port
-    discovery: true
-  - platform: workday
-    country: !secret workday_country
-    province: !secret workday_province
-
-notify:
-  - platform: pushbullet
-    api_key: !secret pushbullet_api_key
-    name: pushbullet
-  - platform: webostv
-    host: !secret webostv_host
-    name: Lounge TV
-  - platform: telstra
-    name: telstra
-    consumer_key: !secret telstra_consumer_key
-    consumer_secret: !secret telstra_consumer_secret
-    phone_number: !secret telstra_phone_number
-
-#Booleans to control Lifx color state
-input_boolean:
-  all_lights:
-    name: All Lights On/Off
-    initial: off
-  bedside_lamp_selected:
-    name: Bedside Lamp Selected
-    initial: on
-  bedroom_selected:
-    name: Bedroom Light Selected
-    initial: off
-  lounge_selected:
-    name: Lounge Selected
-    initial: on
-  hallway_selected:
-    name: Hallway Light Selected
-    initial: off
-
-input_number:
-  hallway_brightness:
-    name: Hallway Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-  cabinet_brightness:
-    name: Cabinet Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-  tv_brightness:
-    name: TV Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-  lounge_brightness:
-    name: Lounge Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-  corner_lamp_brightness:
-    name: Corner Lamp Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-  kitchen_sink_brightness:
-    name: Kitchen Sink Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-  bedroom_brightness:
-    name: Bedroom Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-  bedside_lamp_brightness:
-    name: Bedside Lamp Brightness
-    initial: 50
-    min: 0
-    max: 100
-    step: 10
-
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-zone: !include zones.yaml
+#######################################
+## My automations/scripts/scenes/etc ##
+#######################################
+automation: !include_dir_merge_list config/etc/automation
+script: !include_dir_merge_named config/etc/script
+input_boolean: !include config/etc/input_boolean.yaml
+input_number: !include config/etc/input_number.yaml
