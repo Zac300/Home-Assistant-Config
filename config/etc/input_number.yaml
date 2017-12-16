@@ -46,3 +46,10 @@ bedside_lamp_brightness:
   min: 0
   max: 100
   step: 10
+volume_radio:
+  name: Volume
+  icon: mdi:volume-high
+  initial: 0.35
+  min: 0
+  max: 1
+  step: 0.05

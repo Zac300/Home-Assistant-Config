@@ -1,0 +1,23 @@
+radio_station:
+  name: 'Select Radio Station:'
+  options:
+    - Fresh 92.7
+    - Hit 107
+    - Mix 102.3
+    - Nova 919
+    - Triple J
+    - ABC Adelaide 891
+    - ABC Grandstand
+    - FIVEaa
+chromecast_audio_device:
+  name: 'Select Speaker(s):'
+  options:
+    - Lounge
+    - Lounge Soundbar
+    - Lounge Assistant
+    - Kitchen
+    - Kitchen Speaker
+    - Kitchen Assistant
+    - Everywhere
+  initial: Kitchen
+  icon: mdi:speaker-wireless

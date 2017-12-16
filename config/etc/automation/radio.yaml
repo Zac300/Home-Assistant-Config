@@ -1,0 +1,12 @@
+- alias: 'Change Radio Volume'
+  trigger:
+    platform: state
+    entity_id: input_number.volume_radio
+  action:
+    service: script.radio_volume
+- alias: 'Change Radio Station'
+  trigger:
+    platform: state
+    entity_id: input_select.radio_station
+  action:
+    service: script.radio_play

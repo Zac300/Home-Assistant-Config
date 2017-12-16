@@ -1,0 +1,9 @@
+script.radio_play:
+  friendly_name: Play
+  icon: mdi:play
+script.radio_pause:
+  friendly_name: Pause
+  icon: mdi:play-pause
+script.radio_stop:
+  friendly_name: Stop
+  icon: mdi:stop

@@ -53,3 +53,4 @@ automation: !include_dir_merge_list config/etc/automation
 script: !include_dir_merge_named config/etc/script
 input_boolean: !include config/etc/input_boolean.yaml
 input_number: !include config/etc/input_number.yaml
+input_select: !include config/etc/input_select.yaml
