@@ -1,6 +1,7 @@
 radio_play:
   alias: Play Radio on Chromecast
   sequence:
+    -  service: script.radio_volume
     -  service: media_player.play_media
        data_template:
          entity_id: >
