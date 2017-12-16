@@ -1,0 +1,7 @@
+- platform: ubus
+  host: !secret luci_host
+  username: !secret luci_username
+  password: !secret luci_password
+  interval_seconds: 20
+  consider_home: 60
+  track_new_devices: true
