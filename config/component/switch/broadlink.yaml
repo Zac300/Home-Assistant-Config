@@ -21,3 +21,8 @@
   mac: !secret broadlink_mini_mac
   timeout: 15
   friendly_name: RM Mini
+  switches:
+    # Sony TV
+    sony_tv_power_toggle:
+      friendly_name: "Sony TV Power Toggle"
+      command_on: 'JgCMAE0VJhQUFCYUFBQmFBMVEhUmFRIVEhUTFBMAA01MFiYVExQnFBMUJhUSFRIVJhUTFBMUExUSAANNTRUnFBIVJhUTFCYVEhUSFSYVExQSFRMUFQADS04UJhUSFSYVEhUmFRMUExQlFhIVExQUFBIAA05MFSYVEhUpEhMUJxQSFRMUJxQTFBMVEhUSAA0FAAAAAAAAAAAAAAAA'
