@@ -8,6 +8,8 @@ switch.arlec_switch_2:
   google_assistant_type: light
 switch.soundbar_toggle_input:
   google_assistant: false
+switch.sony_tv_power_toggle:
+  google_assistant: false
 climate.sharp_split_system:
   google_assistant: true
   google_assistant_name: Sharp Split System
@@ -31,3 +33,26 @@ script.bedtime:
   aliases:
     - Time to sleep
     - Go to bed
+script.watch_living_room_tv:
+  google_assistant: true
+  google_assistant_name: Watch Living Room TV
+  google_assistant_type: script
+  aliases:
+    - Watch Sony TV
+    - Dinner Time
+script.turn_up_living_room_tv:
+  google_assistant: true
+  google_assistant_name: Turn Up Living Room TV
+  google_assistant_type: script
+  aliases:
+    - Turn Up Sony TV
+    - Louder Living Room TV
+    - Louder Sony TV
+script.turn_down_living_room_tv:
+  google_assistant: true
+  google_assistant_name: Turn Down Living Room TV
+  google_assistant_type: script
+  aliases:
+    - Turn Down Sony TV
+    - Quieter Living Room TV
+    - Quieter Sony TV
