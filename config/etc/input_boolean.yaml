@@ -13,3 +13,6 @@ lounge_selected:
 hallway_selected:
   name: Hallway Light Selected
   initial: off
+kitchen_party_mode:
+  name: Kitchen Party Mode
+  initial: off
