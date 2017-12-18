@@ -33,38 +33,53 @@ script.bedtime:
   aliases:
     - Time to sleep
     - Go to bed
-script.watch_living_room_tv:
+script.living_room_tv_power_toggle:
+  google_assistant: false
+script.living_room_tv_turn_on:
   google_assistant: true
-  google_assistant_name: Watch Living Room TV
+  google_assistant_name: Living Room TV turn on
   google_assistant_type: script
   aliases:
+    - Turn on Sony TV
+    - Turn on Living Room TV
     - Watch Sony TV
-    - Dinner Time
-script.turn_up_living_room_tv:
+    - Watch Living Room TV
+    - Sony TV on
+    - Living Room TV off
+script.living_room_tv_turn_off:
   google_assistant: true
-  google_assistant_name: Turn Up Living Room TV
+  google_assistant_name: Living Room TV turn off
+  google_assistant_type: script
+  aliases:
+    - Turn off Sony TV
+    - Turn off Living Room TV
+    - Sony TV off
+    - Living Room TV off
+script.living_room_tv_volume_up:
+  google_assistant: true
+  google_assistant_name: Living Room TV volume up
   google_assistant_type: script
   aliases:
     - Turn Up Sony TV
     - Louder Living Room TV
     - Louder Sony TV
-    - Sony TV Up
-    - Sony TV Louder
-    - Sony TV Volume Up
-    - Living Room TV Volume Up
-    - Volume Up Sony TV
-    - Volume Up Living Room TV
-script.turn_down_living_room_tv:
+    - Sony TV up
+    - Sony TV louder
+    - Sony TV volume up
+    - Living Room TV volume up
+    - Volume up Sony TV
+    - Volume up Living Room TV
+script.living_room_tv_volume_down:
   google_assistant: true
-  google_assistant_name: Turn Down Living Room TV
+  google_assistant_name: Living Room TV volume up
   google_assistant_type: script
   aliases:
-    - Turn Down Sony TV
+    - Turn down Sony TV
     - Quieter Living Room TV
     - Quieter Sony TV
-    - Sony TV Down
-    - Sony TV Quieter
-    - Sony TV Volume Down
-    - Living Room TV Volume Down
-    - Volume Down Sony TV
-    - Volume Down Living Room TV
+    - Sony TV down
+    - Sony TV quieter
+    - Sony TV volume down
+    - Living Room TV volume down
+    - Volume down Sony TV
+    - Volume down Living Room TV

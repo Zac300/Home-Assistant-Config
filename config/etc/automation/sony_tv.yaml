@@ -1,0 +1,40 @@
+- alias: 'Living Room TV now on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.living_chromecast_tv
+      to: 'home'
+  action:
+    service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.living_room_tv_home
+- alias: 'Living Room TV now off'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.living_chromecast_tv
+      to: 'not_home'
+  action:
+    service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.living_room_tv_home
+- alias: 'Activate turn on Living Room TV'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.turn_on_living_room_tv
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.living_room_tv_home
+      state: 'off'
+  action:
+    service: script.toggle_living_room_tv
+- alias: 'Activate turn off Living Room TV'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.turn_on_living_room_tv
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.living_room_tv_home
+      state: 'on'
+  action:
+    service: script.toggle_living_room_tv
