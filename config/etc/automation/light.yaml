@@ -682,4 +682,4 @@
       entity_id: group.kitchen_sink
       data:
         rgb_color: [255, 255, 255]
-        brightness: 200
+        brightness: 100
