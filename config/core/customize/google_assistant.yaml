@@ -48,6 +48,10 @@ script.turn_up_living_room_tv:
     - Turn Up Sony TV
     - Louder Living Room TV
     - Louder Sony TV
+    - Sony TV Up
+    - Sony TV Louder
+    - Sony TV Volume Up
+    - Living Room TV Volume Up
 script.turn_down_living_room_tv:
   google_assistant: true
   google_assistant_name: Turn Down Living Room TV
@@ -56,3 +60,7 @@ script.turn_down_living_room_tv:
     - Turn Down Sony TV
     - Quieter Living Room TV
     - Quieter Sony TV
+    - Sony TV Down
+    - Sony TV Quieter
+    - Sony TV Volume Down
+    - Living Room TV Volume Down
