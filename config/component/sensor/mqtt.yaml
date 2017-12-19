@@ -1,0 +1,5 @@
+- platform: mqtt
+  state_topic: !secret mqtt_state_topic_zac
+  name: "Zac Phone Battery"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'

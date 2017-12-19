@@ -1,0 +1,6 @@
+- platform: google_geocode
+  origin: !secret google_geocode_origin_zac
+  name: Zac
+  options: street, city, postal_code
+  display_zone: hide
+  gravatar: !secret google_geocode_gravater_zac
