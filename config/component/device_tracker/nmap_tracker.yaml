@@ -3,5 +3,5 @@
     - !secret nmap_tracker_hosts_1
     - !secret nmap_tracker_hosts_2
   interval_seconds: 20
-  consider_home: 180
+  consider_home: 120
   track_new_devices: True

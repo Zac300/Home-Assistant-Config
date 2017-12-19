@@ -31,16 +31,6 @@ bedtime:
         packet:
           - !secret switch_arlec_1_command_off
           - !secret switch_arlec_2_command_off
-living_room_tv_turn_on:
-  sequence:
-   - service: input_boolean.turn_on
-     data:
-       entity_id: input_boolean.turn_on_living_room_tv
-living_room_tv_turn_off:
-  sequence:
-   - service: input_boolean.turn_off
-     data:
-       entity_id: input_boolean.turn_on_living_room_tv
 living_room_tv_power_toggle:
   sequence:
     - service: broadlink.send_packet_10_0_0_165

@@ -16,9 +16,3 @@ hallway_selected:
 kitchen_party_mode:
   name: Kitchen Party Mode
   initial: off
-living_room_tv_home:
-  name: Living Room TV Home
-  initial: off
-turn_on_living_room_tv:
-  name: Turn on Living Room TV
-  initial: off
