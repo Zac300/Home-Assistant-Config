@@ -1,6 +1,0 @@
-refresh_devices:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: !secret mqtt_refesh_device_cmd_zac
-        payload_template: '{"_type":"cmd","action":"reportLocation"}'

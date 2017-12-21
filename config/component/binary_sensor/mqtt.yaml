@@ -1,0 +1,6 @@
+- platform: mqtt
+  name: "Zac Phone MQTT status"
+  state_topic: !secret mqtt_topic_status_zac
+  payload_on: "1"
+  payload_off: "0"
+  sensor_class: connectivity
