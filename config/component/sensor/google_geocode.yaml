@@ -4,3 +4,4 @@
   options: street, city, postal_code
   display_zone: hide
   gravatar: !secret google_geocode_gravater_zac
+  api_key: !secret google_geocode_api_key
