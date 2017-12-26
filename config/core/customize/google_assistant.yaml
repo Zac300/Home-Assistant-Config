@@ -10,6 +10,8 @@ switch.soundbar_toggle_input:
   google_assistant: false
 switch.sony_tv_power_toggle:
   google_assistant: false
+switch.google_music:
+  google_assistant: false
 climate.sharp_split_system:
   google_assistant: true
   google_assistant_name: Sharp Split System
