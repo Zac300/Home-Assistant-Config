@@ -1,8 +1,8 @@
-# Change Radio station on playing chromecast
-- alias: 'Change Radio Station'
+# Change Google Music Playlist on playing chromecast
+- alias: 'Change Google Music Playlist'
   trigger:
     platform: state
-    entity_id: input_select.radio_station
+    entity_id: input_select.music_playlist
   condition:
     condition: or
     conditions:
@@ -21,4 +21,4 @@
      - condition: template
        value_template: '{{ is_state("input_select.chromecast_audio_device", "whole_home") and is_state("media_player.whole_home", "playing") }}'
   action:
-    service: script.radio_play
+    service: script.google_music_switch_playlist

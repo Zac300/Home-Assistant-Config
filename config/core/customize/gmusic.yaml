@@ -1,0 +1,11 @@
+switch.google_music:
+  hidden: true
+script.google_music_play:
+  friendly_name: Play
+  icon: mdi:play
+script.google_music_pause:
+  friendly_name: Pause
+  icon: mdi:play-pause
+script.google_music_stop:
+  friendly_name: Stop
+  icon: mdi:stop

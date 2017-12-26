@@ -12,18 +12,6 @@ radio_station:
 chromecast_audio_device:
   name: 'Select Speaker(s):'
   options:
-    - Lounge
-    - Lounge Soundbar
-    - Lounge Assistant
-    - Kitchen
-    - Kitchen Speaker
-    - Kitchen Assistant
-    - Everywhere
-  initial: Kitchen
-  icon: mdi:speaker-wireless
-media_player:
-  name: Media player
-  options: # entity_ids of your media players
    - kitchen_assistant
    - kitchen_speaker
    - kitchen_group
@@ -31,9 +19,9 @@ media_player:
    - lounge_soundbar
    - lounge_group
    - whole_home
-  icon: mdi:music-note
-music:
-  name: Music
+  initial: kitchen_group
+  icon: mdi:speaker-wireless
+music_playlist:
+  name: 'Select Playlist:'
   options:
    - " "   # Should be empty
-  icon: mdi:music-note

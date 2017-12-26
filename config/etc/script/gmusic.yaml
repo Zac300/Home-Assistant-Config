@@ -1,0 +1,20 @@
+google_music_play:
+  alias: Play Goolge Music on Chromecast
+  sequence:
+    -  service: script.chromecast_audio_volume
+    -  service: switch.turn_on
+       entity_id: switch.google_music
+google_music_pause:
+  alias: Pause Google Music on Chromecast
+  sequence:
+    -  service: script.chromecast_audio_pause
+google_music_stop:
+  alias: Stop Google Music on Chromecast
+  sequence:
+    -  service: switch.turn_off
+       entity_id: switch.google_music
+    -  service: script.chromecast_audio_stop
+google_music_switch_playlist:
+  sequence:
+    -  service: script.google_music_stop
+    -  service: script.google_music_play

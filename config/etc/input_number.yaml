@@ -46,7 +46,7 @@ bedside_lamp_brightness:
   min: 0
   max: 100
   step: 10
-volume_radio:
+chromecast_audio_volume:
   name: Volume
   icon: mdi:volume-high
   initial: 0.35

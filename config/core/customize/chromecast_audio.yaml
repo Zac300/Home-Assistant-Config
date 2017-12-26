@@ -1,0 +1,6 @@
+script.chromecast_audio_pause:
+  friendly_name: Pause
+  icon: mdi:play-pause
+script.chromecast_audio_stop:
+  friendly_name: Stop
+  icon: mdi:stop

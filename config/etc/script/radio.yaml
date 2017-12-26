@@ -1,69 +1,34 @@
 radio_play:
   alias: Play Radio on Chromecast
   sequence:
-    -  service: script.radio_volume
+    -  service: script.chromecast_audio_volume
     -  service: media_player.play_media
        data_template:
          entity_id: >
-          {% if is_state("input_select.chromecast_audio_device", "Lounge Assistant") %} media_player.lounge_assistant
-          {% elif is_state("input_select.chromecast_audio_device", "Lounge Soundbar") %} media_player.lounge_soundbar
-          {% elif is_state("input_select.chromecast_audio_device", "Lounge") %} media_player.lounge_group
-          {% elif is_state("input_select.chromecast_audio_device", "Kitchen Assistant") %} media_player.kitchen_assistant
-          {% elif is_state("input_select.chromecast_audio_device", "Kitchen Speaker") %} media_player.kitchen_speaker
-          {% elif is_state("input_select.chromecast_audio_device", "Kitchen") %} media_player.kitchen_group
-          {% elif is_state("input_select.chromecast_audio_device", "Everywhere") %} media_player.whole_home
-          {% endif %}
+           {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
+           {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
+           {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
+           {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
+           {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
+           {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
+           {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
+           {% endif %}
          media_content_id: >
-          {% if is_state("input_select.radio_station", "Nova 919") %} http://13743.live.streamtheworld.com/NOVA_919_AAC48.aac?src=tunein&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTEzMzc4NzY0LCJ0ZC1yZWciOmZhbHNlfQ.nh8pIgk1RxOzydmBmsFfUKkbWVwPovMQwszGhSmdNTw
-          {% elif is_state("input_select.radio_station", "Fresh 92.7") %} http://live.fresh927.com.au/freshmp3
-          {% elif is_state("input_select.radio_station", "ABC Adelaide 891") %} http://live-radio02.mediahubaustralia.com/5LRW/aac/;
-          {% elif is_state("input_select.radio_station", "ABC Grandstand") %} http://live-radio02.mediahubaustralia.com/GSDW/mp3/; 
-          {% elif is_state("input_select.radio_station", "Triple J") %} http://live-radio02.mediahubaustralia.com/2TJW/mp3/;
-          {% elif is_state("input_select.radio_station", "FIVEaa") %} http://live-radio02.mediahubaustralia.com/GSDW/mp3/;
-          {% elif is_state("input_select.radio_station", "Hit 107") %} http://legacy.scahw.com.au/5ssa_32
-          {% elif is_state("input_select.radio_station", "Mix 102.3") %}http://icy.arn.com.au/au_003_icy
-          {% endif %}
+           {% if is_state("input_select.radio_station", "Nova 919") %} http://13743.live.streamtheworld.com/NOVA_919_AAC48.aac?src=tunein&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTEzMzc4NzY0LCJ0ZC1yZWciOmZhbHNlfQ.nh8pIgk1RxOzydmBmsFfUKkbWVwPovMQwszGhSmdNTw
+           {% elif is_state("input_select.radio_station", "Fresh 92.7") %} http://live.fresh927.com.au/freshmp3
+           {% elif is_state("input_select.radio_station", "ABC Adelaide 891") %} http://live-radio02.mediahubaustralia.com/5LRW/aac/;
+           {% elif is_state("input_select.radio_station", "ABC Grandstand") %} http://live-radio02.mediahubaustralia.com/GSDW/mp3/; 
+           {% elif is_state("input_select.radio_station", "Triple J") %} http://live-radio02.mediahubaustralia.com/2TJW/mp3/;
+           {% elif is_state("input_select.radio_station", "FIVEaa") %} http://live-radio02.mediahubaustralia.com/GSDW/mp3/;
+           {% elif is_state("input_select.radio_station", "Hit 107") %} http://legacy.scahw.com.au/5ssa_32
+           {% elif is_state("input_select.radio_station", "Mix 102.3") %}http://icy.arn.com.au/au_003_icy
+           {% endif %}
          media_content_type: 'audio/mp4'
 radio_pause:
   alias: Pause Radio on Chromecast
   sequence:
-    service: media_player.media_pause
-    data_template:
-      entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "Lounge Assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "Lounge Soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "Lounge") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen Assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen Speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "Everywhere") %} media_player.whole_home
-        {% endif %}
+    -  service: script.chromecast_audio_pause
 radio_stop:
   alias: Stop Radio on Chromecast
   sequence:
-    service: media_player.media_stop
-    data_template:
-      entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "Lounge Assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "Lounge Soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "Lounge") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen Assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen Speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "Everywhere") %} media_player.whole_home
-        {% endif %}
-radio_volume:
-  alias: Set Radio Volume on Chromecast
-  sequence:  
-    service: media_player.volume_set
-    data_template:
-      entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "Lounge Assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "Lounge Soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "Lounge") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen Assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen Speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "Kitchen") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "Everywhere") %} media_player.whole_home
-        {% endif %}
-      volume_level: '{{  states.input_number.volume_radio.state  }}'
+    -  service: script.chromecast_audio_stop

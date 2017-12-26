@@ -1,0 +1,6 @@
+- alias: 'Change Chromecast Audio Volume'
+  trigger:
+    platform: state
+    entity_id: input_number.chromecast_audio_volume
+  action:
+    service: script.chromecast_audio_volume

@@ -225,11 +225,14 @@ radio:
     - script.radio_play
     - script.radio_pause
     - script.radio_stop
-    - input_number.volume_radio
+    - input_number.chromecast_audio_volume
 ### GOOGLE MUSIC ###
 google_music:
     name: Google Music 
     entities:
-    - input_select.music
-    - input_select.media_player
-    - switch.google_music
+    - input_select.music_playlist
+    - input_select.chromecast_audio_device
+    - script.google_music_play
+    - script.google_music_pause
+    - script.google_music_stop
+    - input_number.chromecast_audio_volume
