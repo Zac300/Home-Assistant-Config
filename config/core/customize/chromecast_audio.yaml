@@ -4,3 +4,9 @@ script.chromecast_audio_pause:
 script.chromecast_audio_stop:
   friendly_name: Stop
   icon: mdi:stop
+script.chromecast_audio_next_track:
+  friendly_name: Next Track
+  icon: mdi:skip-next
+script.chromecast_audio_previous_track:
+  friendly_name: Previous Track
+  icon: mdi:skip-previous

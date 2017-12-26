@@ -41,3 +41,31 @@ chromecast_audio_volume:
         {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
         {% endif %}
       volume_level: '{{  states.input_number.chromecast_audio_volume.state  }}'
+chromecast_audio_next_track:
+  alias: Goto next track on Chromecast
+  sequence:
+    service: media_player.media_next_track
+    data_template:
+      entity_id: >
+        {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
+        {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
+        {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
+        {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
+        {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
+        {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
+        {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
+        {% endif %}
+chromecast_audio_previous_track:
+  alias: Goto previous track on Chromecast
+  sequence:
+    service: media_player.media_previous_track
+    data_template:
+      entity_id: >
+        {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
+        {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
+        {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
+        {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
+        {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
+        {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
+        {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
+        {% endif %}

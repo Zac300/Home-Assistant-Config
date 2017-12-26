@@ -235,4 +235,6 @@ google_music:
     - script.google_music_play
     - script.google_music_pause
     - script.google_music_stop
+    - script.chromecast_audio_previous_track
+    - script.chromecast_audio_next_track
     - input_number.chromecast_audio_volume
