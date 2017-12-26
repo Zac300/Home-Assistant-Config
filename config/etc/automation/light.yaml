@@ -683,3 +683,65 @@
       data:
         rgb_color: [255, 255, 255]
         brightness: 100
+- id: lounge_party_mode_on
+  alias: "Turn Lounge Party Mode On"
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      seconds: '/3'
+  condition:
+    - condition: state
+      entity_id: input_boolean.lounge_party_mode
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.hallway
+      data_template:
+        rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
+        brightness: 200
+        transition: '{{ (range(1, 2)|random) }}'
+    - service: light.turn_on
+      entity_id: light.lounge
+      data_template:
+        rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
+        brightness: 200
+        transition: '{{ (range(1, 2)|random) }}'
+    - service: light.turn_on
+      entity_id: light.corner_lamp
+      data_template:
+        rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
+        brightness: 200
+        transition: '{{ (range(1, 2)|random) }}'
+    - service: light.turn_on
+      entity_id: light.tv
+      data_template:
+        rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
+        brightness: 200
+        transition: '{{ (range(1, 2)|random) }}'
+    - service: light.turn_on
+      entity_id: light.cabinet
+      data_template:
+        rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
+        brightness: 200
+        transition: '{{ (range(1, 2)|random) }}'
+    - service: light.turn_on
+      entity_id: light.window
+      data_template:
+        rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
+        brightness: 200
+        transition: '{{ (range(1, 2)|random) }}'
+- id: lounge_party_mode_off
+  alias: "Turn Lounge Party Mode Off"
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.lounge_party_mode
+      to: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: group.lounge_hall
+      data:
+        rgb_color: [255, 255, 255]
+        brightness: 100
+    - service: light.turn_off 
+      entity_id: group.lounge_hall

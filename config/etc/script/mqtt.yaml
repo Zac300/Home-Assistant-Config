@@ -1,0 +1,9 @@
+mqtt_send_notification:
+  alias: Send notification via MQTT
+  sequence:
+    service: mqtt.publish
+    data_template:
+      topic: 'zanzito/{{ dest_id }}/notification'
+      payload: '{{ message }}'
+      qos: 1
+      retain: 0

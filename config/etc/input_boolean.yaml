@@ -16,3 +16,6 @@ hallway_selected:
 kitchen_party_mode:
   name: Kitchen Party Mode
   initial: off
+lounge_party_mode:
+  name: Lounge Party Mode
+  initial: off
