@@ -21,7 +21,7 @@ chromecast_audio_device:
    - whole_home
   initial: kitchen_group
   icon: mdi:speaker-wireless
-music_playlist:
+google_music_playlist:
   name: 'Select Playlist:'
   options:
    - " "   # Should be empty

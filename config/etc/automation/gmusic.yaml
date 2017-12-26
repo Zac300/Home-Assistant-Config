@@ -2,7 +2,7 @@
 - alias: 'Change Google Music Playlist'
   trigger:
     platform: state
-    entity_id: input_select.music_playlist
+    entity_id: input_select.google_music_playlist
   condition:
     condition: or
     conditions:

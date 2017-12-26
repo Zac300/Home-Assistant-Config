@@ -230,7 +230,7 @@ radio:
 google_music:
     name: Google Music 
     entities:
-    - input_select.music_playlist
+    - input_select.google_music_playlist
     - input_select.chromecast_audio_device
     - script.google_music_play
     - script.google_music_pause
