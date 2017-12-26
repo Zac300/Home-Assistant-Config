@@ -37,6 +37,7 @@ cast_view:
   entities:
     - sensor.plex
     - group.radio
+    - group.google_music
     - media_player.kitchen_assistant
     - media_player.kitchen_speaker
     - media_player.kitchen_group
@@ -225,3 +226,10 @@ radio:
     - script.radio_pause
     - script.radio_stop
     - input_number.volume_radio
+### GOOGLE MUSIC ###
+google_music:
+    name: Google Music 
+    entities:
+    - input_select.music
+    - input_select.media_player
+    - switch.google_music
