@@ -4,6 +4,7 @@ dashboard:
   view: yes
   icon: mdi:view-dashboard-variant
   entities:
+    - group.people
     - group.all_lights
     - group.weather_overview
     - climate.sharp_split_system
@@ -228,8 +229,8 @@ radio:
     - input_number.chromecast_audio_volume
 ### GOOGLE MUSIC ###
 google_music:
-    name: Google Music 
-    entities:
+  name: Google Music 
+  entities:
     - input_select.google_music_playlist
     - input_select.chromecast_audio_device
     - script.google_music_play
@@ -238,3 +239,11 @@ google_music:
     - script.chromecast_audio_previous_track
     - script.chromecast_audio_next_track
     - input_number.chromecast_audio_volume
+### PEOPLE GROUP ###
+people:
+  name: People
+  entities:
+    - device_tracker.nmap_zac_nexus_6p
+    - device_tracker.zac_nexus_6p
+    - sensor.zac_address
+    - device_tracker.tegan_nexus_6p
