@@ -92,6 +92,7 @@ Home Assistant Version: 0.60.0
 | Name                                                  | Link |
 | ----------------------------------------------------- | ---- |
 | CloudMQTT                                             | [(CloudMQTT)](https://www.cloudmqtt.com) |
+| Google Geocode Custom Component                       | [(Community)](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233) |
 | Zanzito                                               | [(Community)](https://community.home-assistant.io/t/zanzito-a-lightweight-bridge-between-your-android-device-and-your-mqtt-home-automation-system/20228) |
 
 
