@@ -246,4 +246,8 @@ people:
     - device_tracker.nmap_zac_nexus_6p
     - device_tracker.zac_nexus_6p
     - sensor.zac_address
+    - sensor.zac_phone_battery
+    - device_tracker.nmap_tegan_nexus_6p
     - device_tracker.tegan_nexus_6p
+    - sensor.tegan_address
+    - sensor.tegan_phone_battery

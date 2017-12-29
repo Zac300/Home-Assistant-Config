@@ -3,3 +3,8 @@
   state_topic: !secret mqtt_topic_battery_level_zac
   qos: 0
   unit_of_measurement: "%"
+- platform: mqtt
+  name: "Tegan Phone Battery"
+  state_topic: !secret mqtt_topic_battery_level_tegan
+  qos: 0
+  unit_of_measurement: "%"
