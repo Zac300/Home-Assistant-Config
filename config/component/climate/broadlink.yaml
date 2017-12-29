@@ -7,11 +7,11 @@
   max_temp: 26
   target_temp: 23
   temp_sensor: sensor.broadlink_sensor_temperature
-  default_operation: idle
+  default_operation: 'off'
   default_fan_mode: auto
   customize:
     operations:
-      - idle
+      - 'off'
       - cool
       - heat
     fan_modes:
