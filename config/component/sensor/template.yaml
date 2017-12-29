@@ -1,0 +1,13 @@
+- platform: template
+  sensors:
+    commute:
+      friendly_name: "Commute"
+      unit_of_measurement: 'Min'
+      value_template: >-
+          {% if is_state('device_tracker.zac_nexus_6p', 'home') %}
+            {{ states.sensor.home_to_work.state }}
+          {% elif is_state('device_tracker.zac_nexus_6p', 'work') %}
+            {{ states.sensor.work_to_home.state }}
+          {% else %}
+            0
+          {% endif %}

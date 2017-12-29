@@ -1,5 +1,10 @@
 - platform: google_travel_time
-  name: Work travel time
+  name: Home to work
   api_key: !secret google_travel_time_api_key
   origin: !secret google_travel_time_home
   destination: !secret google_travel_time_work
+- platform: google_travel_time 
+  name: Work to home
+  api_key: !secret google_travel_time_api_key
+  origin: !secret google_travel_time_work
+  destination: !secret google_travel_time_home
