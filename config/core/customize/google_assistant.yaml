@@ -12,6 +12,10 @@ switch.sony_tv_power_toggle:
   google_assistant: false
 switch.google_music:
   google_assistant: false
+media_player.sony_tv:
+  google_assistant: true
+  google_assistant_name: Sony TV
+  google_assistant_type: media_player
 climate.sharp_split_system:
   google_assistant: true
   google_assistant_name: Sharp Split System
@@ -36,7 +40,7 @@ script.bedtime:
     - Time to sleep
     - Go to bed
 script.living_room_tv_power_toggle:
-  google_assistant: true
+  google_assistant: false
   google_assistant_name: Living Room TV
   google_assistant_type: switch
   aliases:
@@ -51,7 +55,7 @@ script.living_room_tv_power_toggle:
     - Sony TV off
     - Living Room TV off
 script.living_room_tv_volume_up:
-  google_assistant: true
+  google_assistant: false
   google_assistant_name: Living Room TV volume up
   google_assistant_type: script
   aliases:
@@ -65,7 +69,7 @@ script.living_room_tv_volume_up:
     - Volume up Sony TV
     - Volume up Living Room TV
 script.living_room_tv_volume_down:
-  google_assistant: true
+  google_assistant: false
   google_assistant_name: Living Room TV volume up
   google_assistant_type: script
   aliases:

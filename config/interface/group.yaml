@@ -46,6 +46,12 @@ cast_view:
     - media_player.lounge_soundbar
     - media_player.lounge_group
     - media_player.whole_home
+travel_view:
+  name: Travel
+  view: yes
+  icon: mdi:car
+  entities:
+    - group.travel
 ## FLIC GROUP ##
 flic:
   name: Flic
@@ -90,6 +96,7 @@ kitchen_living:
   - light.sink_left
   - light.sink_centre
   - light.sink_right
+  - device_tracker.sony_tv
   - device_tracker.elgato_eyetv
   - device_tracker.living_chromecast_tv
   - device_tracker.bw_a7
@@ -251,3 +258,10 @@ people:
     - device_tracker.tegan_nexus_6p
     - sensor.tegan_address
     - sensor.tegan_phone_battery
+### TRAVEL GROUP ###
+travel:
+  name: Travel
+  entities:
+    - sensor.commute
+    - sensor.home_to_work
+    - sensor.work_to_home

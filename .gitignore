@@ -12,3 +12,4 @@ deps
 panels
 www
 config/component/climate/broadlink_climate_codes
+config/component/media_player/broadlink_media_codes

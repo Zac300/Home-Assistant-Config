@@ -6,4 +6,3 @@ api_key: !secret google_assistant_api_key
 exposed_domains:
   - !secret google_assistant_exposed_domains_1
   - !secret google_assistant_exposed_domains_2
-  - !secret google_assistant_exposed_domains_3
