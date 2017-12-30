@@ -228,6 +228,7 @@ all_switches:
 ### RADIO GROUP ###
 radio:
   name: Radio
+  control: hidden
   entities:
     - input_select.radio_station
     - input_select.chromecast_audio_device
@@ -238,6 +239,7 @@ radio:
 ### GOOGLE MUSIC ###
 google_music:
   name: Google Music 
+  control: hidden
   entities:
     - input_select.google_music_playlist
     - input_select.chromecast_audio_device
