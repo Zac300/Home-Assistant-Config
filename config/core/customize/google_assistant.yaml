@@ -39,23 +39,8 @@ script.bedtime:
   aliases:
     - Time to sleep
     - Go to bed
-script.living_room_tv_power_toggle:
-  google_assistant: false
-  google_assistant_name: Living Room TV
-  google_assistant_type: switch
-  aliases:
-    - Turn on Sony TV
-    - Turn on Living Room TV
-    - Watch Sony TV
-    - Watch Living Room TV
-    - Sony TV on
-    - Living Room TV off
-    - Turn off Sony TV
-    - Turn off Living Room TV
-    - Sony TV off
-    - Living Room TV off
 script.living_room_tv_volume_up:
-  google_assistant: false
+  google_assistant: true
   google_assistant_name: Living Room TV volume up
   google_assistant_type: script
   aliases:
@@ -68,8 +53,10 @@ script.living_room_tv_volume_up:
     - Living Room TV volume up
     - Volume up Sony TV
     - Volume up Living Room TV
+    - Increase Sony TV volume
+    - Increase Living Room TV volume
 script.living_room_tv_volume_down:
-  google_assistant: false
+  google_assistant: true
   google_assistant_name: Living Room TV volume up
   google_assistant_type: script
   aliases:
@@ -82,3 +69,5 @@ script.living_room_tv_volume_down:
     - Living Room TV volume down
     - Volume down Sony TV
     - Volume down Living Room TV
+    - Decrease Sony TV volume
+    - Decrease Living Room TV volume
