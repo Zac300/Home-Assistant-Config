@@ -52,7 +52,7 @@ mqtt:
   keepalive: !secret mqtt_keepalive
   username: !secret mqtt_username
   password: !secret mqtt_password
-  
+  certificate: !secret mqtt_certificate  
 
 #######################################
 ## My automations/scripts/scenes/etc ##

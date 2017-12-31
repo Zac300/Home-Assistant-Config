@@ -1,0 +1,6 @@
+- platform: mqtt
+  topic: !secret mqtt_topic_picture_zac
+  name: Zac Nexus 6p Camera
+- platform: mqtt
+  topic: !secret mqtt_topic_picture_tegan
+  name: Tegan Nexus 6P Camera

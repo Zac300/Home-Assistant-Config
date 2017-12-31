@@ -10,6 +10,7 @@ config/component/tts/*.mp3
 tts/*.mp3
 deps
 panels
+private
 www
 config/component/climate/broadlink_climate_codes
 config/component/media_player/broadlink_media_codes
