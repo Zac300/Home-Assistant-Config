@@ -79,13 +79,10 @@ lounge_hall:
    - light.corner_lamp
    - light.tv
    - light.cabinet
-   - light.window
    - device_tracker.lounge_lg_tv
    - device_tracker.lounge_chromecast_tv
    - device_tracker.lounge_chromecast_soundbar
    - device_tracker.lounge_google_home
-   - switch.arlec_switch_1
-   - switch.arlec_switch_2
 kitchen_sink:
  name: Kitchen Sink
  entities:
@@ -121,7 +118,6 @@ all_lights:
   - light.corner_lamp
   - light.lounge
   - light.hallway
-  - light.window
   - light.bedroom
   - light.bedside_lamp
 arlo:

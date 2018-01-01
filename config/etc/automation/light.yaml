@@ -623,12 +623,6 @@
         rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
         brightness: 200
         transition: '{{ (range(1, 2)|random) }}'
-    - service: light.turn_on
-      entity_id: light.window
-      data_template:
-        rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
-        brightness: 200
-        transition: '{{ (range(1, 2)|random) }}'
 - id: lounge_party_mode_off
   alias: "Turn Lounge Party Mode Off"
   initial_state: 'on'

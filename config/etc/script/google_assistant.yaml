@@ -5,14 +5,7 @@ watch_tv:
         entity_id: group.lounge_hall
     - service: light.turn_on
       data:
-        entity_id: light.window
-    - service: light.turn_on
-      data:
         entity_id: light.tv
-    - service: homeassistant.turn_on
-      entity_id: switch.arlec_switch_1
-    - service: homeassistant.turn_on 
-      entity_id: switch.arlec_switch_2
 bedtime:
   sequence:
     - service: light.turn_off
@@ -25,10 +18,6 @@ bedtime:
     - service: light.turn_on
       data:
         entity_id: light.bedside_lamp
-    - service: homeassistant.turn_off
-      entity_id: switch.arlec_switch_1
-    - service: homeassistant.turn_off
-      entity_id: switch.arlec_switch_2
     - service: homeassistant.turn_on 
       entity_id: switch.arlec_switch_3
 living_room_tv_power_toggle:
