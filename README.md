@@ -74,6 +74,7 @@ Home Assistant Version: 0.60.0
 #### Media
 | Name                                                  | Link |
 | ----------------------------------------------------- | ---- |
+| Broadlink IR Media Player                             | [(Community)](https://community.home-assistant.io/t/broadlink-ir-climate-component/$
 | Google Music Custom Component                         | [(Community)](https://community.home-assistant.io/t/google-music-in-ha/10976) |
 | Plex Media Server                                     | [(Plex)](https://www.plex.tv) |
 | Radio Custom Component                                | [(Community)](https://community.home-assistant.io/t/chromecast-radio-with-station-and-player-selection/12732) |
