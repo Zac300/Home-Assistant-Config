@@ -1,0 +1,42 @@
+- alias: Flic Bedside Hold On
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: hold
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.arlec_switch_3
+      state: 'on'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.arlec_switch_3
+- alias: Flic Bedside Hold Off
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da732c8a
+        click_type: hold
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da733454
+        click_type: hold
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.arlec_switch_3
+      state: 'off'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.arlec_switch_3

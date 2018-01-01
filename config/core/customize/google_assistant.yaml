@@ -6,6 +6,10 @@ switch.arlec_switch_2:
   google_assistant: true
   google_assistant_name: Fairy Lights
   google_assistant_type: light
+switch.arlec_switch_3:
+  google_assistant: true
+  google_assistant_name: Sound Machine
+  google_assistant_type: switch
 switch.soundbar_toggle_input:
   google_assistant: false
 switch.sony_tv_power_toggle:

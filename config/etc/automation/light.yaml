@@ -186,46 +186,6 @@
         color_name: white
         transition: 0.5
         brightness: '{{ ((states.input_number.bedroom_brightness.state | int *2.5)) | int }}'
-- alias: Flic Bedroom Selector (Bedroom)
-  trigger:
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da732c8a
-        click_type: hold
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da733454
-        click_type: hold
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.bedside_lamp_selected
-      state: 'on'
-  action:
-    service: script.select_bedroom
-- alias: Flic Bedroom Selector (Bedside Lamp)
-  trigger:
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da732c8a
-        click_type: hold
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da733454
-        click_type: hold
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.bedroom_selected
-      state: 'on'
-  action:
-    service: script.select_bedside_lamp
 - alias: Flic Bedroom Toggle (Bedside Lamp)
   trigger:
     - platform: event
@@ -238,36 +198,9 @@
       event_data:
         button_name: flic_80e4da733454
         click_type: single
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.bedside_lamp_selected
-      state: 'on'
   action:
     service: light.toggle
     entity_id: light.bedside_lamp
-- alias: Flic Bedroom Toggle (Bedroom)
-  trigger:
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da732c8a
-        click_type: single
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da733454
-        click_type: single
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.bedroom_selected
-      state: 'on'
-  action:
-    service: light.toggle
-    entity_id: light.bedroom
 - alias: Flic Lounge Selector (Hallway)
   trigger:
     - platform: event
@@ -575,34 +508,6 @@
         {% else %}
            {{ ((states.input_number.bedroom_brightness.state | int + 20)) | int }}
         {% endif %}
-- alias: Toggle Bedroom Brightness if Bedside flic is double pressed
-  trigger:
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da732c8a
-        click_type: double
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da733454
-        click_type: double
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.bedroom_selected
-      state: 'on'
-  action:
-    service: input_number.set_value
-    entity_id: input_number.bedroom_brightness
-    data_template:
-      value: >-
-        {% if states.input_number.bedroom_brightness.state | int > 80 %}
-           {{ 20 | int }}
-        {% else %}
-           {{ ((states.input_number.bedroom_brightness.state | int + 20)) | int }}
-        {% endif %}
 - alias: Change Bedside Lamp Brightness
   trigger:
     - platform: state
@@ -625,12 +530,6 @@
       event_data:
         button_name: flic_80e4da733454
         click_type: double
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.bedside_lamp_selected
-      state: 'on'
   action:
     service: input_number.set_value
     entity_id: input_number.bedside_lamp_brightness

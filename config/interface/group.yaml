@@ -84,6 +84,8 @@ lounge_hall:
    - device_tracker.lounge_chromecast_tv
    - device_tracker.lounge_chromecast_soundbar
    - device_tracker.lounge_google_home
+   - switch.arlec_switch_1
+   - switch.arlec_switch_2
 kitchen_sink:
  name: Kitchen Sink
  entities:
@@ -107,6 +109,7 @@ bedroom:
  entities:
   - light.bedside_lamp
   - light.bedroom
+  - switch.arlec_switch_3
 all_lights:
  name: All Lights
  entities:
