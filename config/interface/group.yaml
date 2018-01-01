@@ -225,6 +225,7 @@ all_switches:
   entities:
     - switch.arlec_switch_1
     - switch.arlec_switch_2
+    - switch.arlec_switch_3
 ### RADIO GROUP ###
 radio:
   name: Radio

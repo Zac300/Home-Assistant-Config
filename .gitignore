@@ -3,7 +3,7 @@
 secrets.yaml
 known_devices.yaml
 *.log
-*.db
+*.db*
 *.conf
 *.pyc
 config/component/tts/*.mp3
