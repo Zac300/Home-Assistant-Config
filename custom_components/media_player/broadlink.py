@@ -294,8 +294,8 @@ class BroadlinkIRMediaPlayer(MediaPlayerDevice):
                 ping_cmd = ['ping', '-n', '1', '-w',
                             str(DEFAULT_PING_TIMEOUT * 1000), str(self._ping_host)]
             else:
-                ping_cmd = ['nc', '-vz',
-                             str(self._ping_host), str(self._ping_port)]
+                ping_cmd = ['nc', '-vz', '-w',
+                             str(DEFAULT_PING_TIMEOUT), str(self._ping_host), str(self._ping_port)]
 
             status = sp.call(ping_cmd, stdout=sp.DEVNULL, stderr=sp.DEVNULL)
             self._state = STATE_ON if not bool(status) else STATE_OFF

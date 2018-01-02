@@ -12,6 +12,10 @@ media_player.sony_tv:
   google_assistant: true
   google_assistant_name: Sony TV
   google_assistant_type: media_player
+media_player.lg_tv:
+  google_assistant: true
+  google_assistant_name: LG TV
+  google_assistant_type: media_player
 climate.sharp_split_system:
   google_assistant: true
   google_assistant_name: Sharp Split System
@@ -40,7 +44,7 @@ script.living_room_tv_volume_up:
   google_assistant_name: Living Room TV volume up
   google_assistant_type: script
   aliases:
-    - Turn Up Sony TV
+    - Turn up Sony TV
     - Louder Living Room TV
     - Louder Sony TV
     - Sony TV up
@@ -53,7 +57,7 @@ script.living_room_tv_volume_up:
     - Increase Living Room TV volume
 script.living_room_tv_volume_down:
   google_assistant: true
-  google_assistant_name: Living Room TV volume up
+  google_assistant_name: Living Room TV volume down
   google_assistant_type: script
   aliases:
     - Turn down Sony TV
@@ -67,3 +71,35 @@ script.living_room_tv_volume_down:
     - Volume down Living Room TV
     - Decrease Sony TV volume
     - Decrease Living Room TV volume
+script.lounge_room_tv_volume_up:
+  google_assistant: true
+  google_assistant_name: Lounge Room TV volume up
+  google_assistant_type: script
+  aliases:
+    - Turn up LG TV
+    - Louder Lounge Room TV
+    - Louder LG TV
+    - LG TV up
+    - LG TV louder
+    - LG TV volume up
+    - Lounge Room TV volume up
+    - Volume up LG TV
+    - Volume up Lounge Room TV
+    - Increase LG TV volume
+    - Increase Lounge Room TV volume
+script.lounge_room_tv_volume_down:
+  google_assistant: true
+  google_assistant_name: Lounge Room TV volume down
+  google_assistant_type: script
+  aliases:
+    - Turn down LG TV
+    - Quieter Lounge Room TV
+    - Quieter LG TV
+    - LG TV down
+    - LG TV quieter
+    - LG TV volume down
+    - Lounge Room TV volume down
+    - Volume down LG TV
+    - Volume down Lounge Room TV
+    - Decrease LG TV volume
+    - Decrease Lounge Room TV volume

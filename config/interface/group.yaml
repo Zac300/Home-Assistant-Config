@@ -22,6 +22,7 @@ switch_view:
     - group.all_switches
     - climate.sharp_split_system
     - media_player.sony_tv
+    - media_player.lg_tv
 download_view:
   name: Download
   view: yes

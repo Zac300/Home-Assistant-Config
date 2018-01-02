@@ -6,6 +6,14 @@ watch_tv:
     - service: light.turn_on
       data:
         entity_id: light.tv
+    - service: light.turn_on
+      data:
+        entity_id: light.corner_lamp
+    - condition: state
+      entity_id: media_player.lg_tv
+      state: 'off'
+    - service: media_player.turn_on
+      entity_id: media_player.lg_tv
 bedtime:
   sequence:
     - service: light.turn_off
@@ -20,25 +28,40 @@ bedtime:
         entity_id: light.bedside_lamp
     - service: homeassistant.turn_on 
       entity_id: switch.arlec_switch_3
-living_room_tv_power_toggle:
-  sequence:
-    - service: broadlink.send_packet_10_0_0_165
-      data:
-        packet:
-          - 'JgCMAE0VJhQUFCYUFBQmFBMVEhUmFRIVEhUTFBMAA01MFiYVExQnFBMUJhUSFRIVJhUTFBMUExUSAANNTRUnFBIVJhUTFCYVEhUSFSYVExQSFRMUFQADS04UJhUSFSYVEhUmFRMUExQlFhIVExQUFBIAA05MFSYVEhUpEhMUJxQSFRMUJxQTFBMVEhUSAA0FAAAAAAAAAAAAAAAA'
+    - condition: state
+      entity_id: media_player.lg_tv
+      state: 'on'
+    - service: media_player.turn_off
+      entity_id: media_player.lg_tv
 living_room_tv_volume_up:
   sequence:
-    - service: broadlink.send_packet_10_0_0_165
-      data:
-        packet:
-          - 'JgBUAE0VExUlFRQUExQmFRMUEhUnFBEWEhUSFRIAA2JNFRIVJhUSFhAXJxMTFBEWJhUVEhMVEhUSAANhSxcSFSYVEhUSFSYVEhYSFCcUEhYSFRIVEgANBQAAAAA='
-          - 'JgBUAE0VExUlFRQUExQmFRMUEhUnFBEWEhUSFRIAA2JNFRIVJhUSFhAXJxMTFBEWJhUVEhMVEhUSAANhSxcSFSYVEhUSFSYVEhYSFCcUEhYSFRIVEgANBQAAAAA='
-          - 'JgBUAE0VExUlFRQUExQmFRMUEhUnFBEWEhUSFRIAA2JNFRIVJhUSFhAXJxMTFBEWJhUVEhMVEhUSAANhSxcSFSYVEhUSFSYVEhYSFCcUEhYSFRIVEgANBQAAAAA='
+    - service: media_player.volume_up
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_up
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_up
+      entity_id: media_player.sony_tv
 living_room_tv_volume_down:
   sequence:
-    - service: broadlink.send_packet_10_0_0_165
-      data:
-        packet:
-          - 'JgBUAEwVJhYlFRMVEBYnFRIVERUnFREWEhQTFRIAA05LFiYVJxURFRMVJRYPFxIVJxURFRIVEhYTAANOTBUlFScUEhYTFCUVExUTFCYVEhUSFRMUEwANBQAAAAA='
-          - 'JgBUAEwVJhYlFRMVEBYnFRIVERUnFREWEhQTFRIAA05LFiYVJxURFRMVJRYPFxIVJxURFRIVEhYTAANOTBUlFScUEhYTFCUVExUTFCYVEhUSFRMUEwANBQAAAAA='
-          - 'JgBUAEwVJhYlFRMVEBYnFRIVERUnFREWEhQTFRIAA05LFiYVJxURFRMVJRYPFxIVJxURFRIVEhYTAANOTBUlFScUEhYTFCUVExUTFCYVEhUSFRMUEwANBQAAAAA='
+    - service: media_player.volume_down
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_down
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_down
+      entity_id: media_player.sony_tv
+lounge_room_tv_volume_up:
+  sequence:
+    - service: media_player.volume_up
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_up
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_up
+      entity_id: media_player.lg_tv
+lounge_room_tv_volume_down:
+  sequence:
+    - service: media_player.volume_down
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_down
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_down
+      entity_id: media_player.lg_tv
