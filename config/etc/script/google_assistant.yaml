@@ -23,9 +23,15 @@ bedtime:
       data:
         entity_id: light.hallway
         brightness: 65
+    - service: light.turn_off
+      data:
+        entity_id: group.bedroom
     - service: light.turn_on
       data:
         entity_id: light.bedside_lamp
+    - service: fan.turn_off
+      data:
+        entity_id: fan.lounge
     - service: homeassistant.turn_on 
       entity_id: switch.arlec_switch_3
     - condition: state

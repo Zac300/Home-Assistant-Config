@@ -15,6 +15,7 @@ switch_view:
   entities:
     - group.all_switches
     - climate.sharp_split_system
+    - fan.lounge
     - media_player.sony_tv
     - media_player.lg_tv
 travel_view:

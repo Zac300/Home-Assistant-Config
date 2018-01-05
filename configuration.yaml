@@ -38,6 +38,7 @@ alarm_control_panel: !include_dir_merge_list config/component/alarm_control_pane
 sensor: !include_dir_merge_list config/component/sensor
 switch: !include_dir_merge_list config/component/switch
 climate: !include_dir_merge_list config/component/climate
+fan: !include_dir_merge_list config/component/fan
 tts: !include_dir_merge_list config/component/tts
 light: !include_dir_merge_list config/component/light
 media_player: !include_dir_merge_list config/component/media_player

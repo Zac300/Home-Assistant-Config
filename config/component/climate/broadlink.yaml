@@ -1,7 +1,7 @@
 - platform: broadlink
   name: Sharp Split System
-  host: !secret broadlink_pro_host
-  mac: !secret broadlink_pro_mac
+  host: !secret broadlink_mini_host
+  mac: !secret broadlink_mini_mac
   ircodes_ini: 'config/component/climate/broadlink_climate_codes/sharp_split_system.ini'
   min_temp: 20
   max_temp: 26

@@ -33,6 +33,11 @@ Home Assistant Version: 0.60.0
 | ----- | ----------------------------------------------------- | ---- |
 | 4     | Arlo Pro Camera                                       | [(Arlo)](https://www.arlo.com/au/products/arlo-pro/default.aspx) |
 
+#### Fan
+| Qty   | Name                                                  | Link |
+| ----- | ----------------------------------------------------- | ---- |
+| 1     | Heller Pedestal Fan with remote                       | [(Stratco)](https://www.stratco.com.au/products/hardware/heller-40cm-pedestal-fan-with-remote/) |
+
 #### Media
 | Qty   | Name                                                  | Link |
 | ----- | ----------------------------------------------------- | ---- |
@@ -70,6 +75,11 @@ Home Assistant Version: 0.60.0
 | Name                                                  | Link |
 | ----------------------------------------------------- | ---- |
 | Broadlink IR Climate Component                        | [(Community)](https://community.home-assistant.io/t/broadlink-ir-climate-component/27406) |
+
+#### Fan
+| Name                                                  | Link |
+| ----------------------------------------------------- | ---- |
+| Broadlink IR Fan Component                            | [(Community)](https://community.home-assistant.io/t/broadlink-ir-climate-component/27406) |
 
 #### Media
 | Name                                                  | Link |

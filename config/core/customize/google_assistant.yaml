@@ -24,6 +24,13 @@ climate.sharp_split_system:
     - Living Room Air Conditioner
     - Living Room A C
     - Split System
+fan.lounge:
+  google_assistant: true
+  google_assistant_name: Lounge Fan
+  google_assistant_type: fan
+  aliases:
+    - Fan
+    - Lounge Room Fan
 script.watch_tv:
   google_assistant: true
   google_assistant_name: Watch TV
