@@ -1,0 +1,62 @@
+- alias: Toggle Lounge fan if flic is pressed once
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7186ac
+        click_type: single
+  action:
+    service: fan.toggle
+    entity_id: fan.lounge
+- alias: Toggle Lounge fan swing mode if flic is held
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7186ac
+        click_type: hold
+  action:
+    service: fan.set_speed         
+    entity_id: fan.lounge
+    data_template:
+      speed: >-
+        {% if states.fan.lounge.attributes.speed == "low"  %}
+           low-swing
+        {% elif states.fan.lounge.attributes.speed == "medium"  %}
+           medium-swing
+        {% elif states.fan.lounge.attributes.speed == "high"  %}
+           high-swing
+        {% elif states.fan.lounge.attributes.speed == "low-swing"  %}
+           low
+        {% elif states.fan.lounge.attributes.speed == "medium-swing"  %}
+           medium
+        {% elif states.fan.lounge.attributes.speed == "high-swing"  %}
+           high
+        {% else %}
+           low-swing
+        {% endif %}
+- alias: Toggle Lounge fan speed if flic is double pressed
+  trigger:
+    - platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da7186ac
+        click_type: double
+  action:
+    service: fan.set_speed
+    entity_id: fan.lounge
+    data_template:
+      speed: >-
+        {% if states.fan.lounge.attributes.speed == "low"  %}
+           medium
+        {% elif states.fan.lounge.attributes.speed == "medium"  %}
+           high
+        {% elif states.fan.lounge.attributes.speed == "high"  %}
+           low
+        {% elif states.fan.lounge.attributes.speed == "low-swing"  %}
+           medium-swing
+        {% elif states.fan.lounge.attributes.speed == "medium-swing"  %}
+           high-swing
+        {% else %}
+           low-swing
+        {% endif %}
