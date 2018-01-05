@@ -8,6 +8,7 @@ import subprocess as sp
 import voluptuous as vol
 import homeassistant.util as util
 import homeassistant.helpers.config_validation as cv
+import json
 
 from homeassistant.components.media_player import (
     SUPPORT_TURN_ON, SUPPORT_TURN_OFF, SUPPORT_VOLUME_MUTE, 
@@ -172,17 +173,19 @@ class BroadlinkIRMediaPlayer(MediaPlayerDevice):
     def send_ir(self, section, value):
         command = self._commands_ini.get(section, value)
         
-        for retry in range(DEFAULT_RETRY):
-            try:
-                payload = b64decode(command)
-                self._broadlink_device.send_data(payload)
-                break
-            except (socket.timeout, ValueError):
+        packets = json.loads(command)
+        for packet in packets:
+            for retry in range(DEFAULT_RETRY):
                 try:
-                    self._broadlink_device.auth()
-                except socket.timeout:
-                    if retry == DEFAULT_RETRY-1:
-                        _LOGGER.error("Failed to send packet to Broadlink RM Device")
+                    payload = b64decode(packet)
+                    self._broadlink_device.send_data(payload)
+                    break
+                except (socket.timeout, ValueError):
+                    try:
+                        self._broadlink_device.auth()
+                    except socket.timeout:
+                        if retry == DEFAULT_RETRY-1:
+                            _LOGGER.error("Failed to send packet to Broadlink RM Device")
         
     @property
     def name(self):
