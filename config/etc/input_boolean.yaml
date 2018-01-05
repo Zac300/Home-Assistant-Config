@@ -13,3 +13,9 @@ kitchen_party_mode:
 lounge_party_mode:
   name: Lounge Party Mode
   initial: off
+push_notification_distance_zac_to_tegan:
+  name: Send Notifications - To Tegan
+  icon: mdi:message-alert
+push_notification_distance_tegan_to_zac:
+  name: Send Notifications - To Zac
+  icon: mdi:message-alert

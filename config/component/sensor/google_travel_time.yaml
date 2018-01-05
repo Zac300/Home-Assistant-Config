@@ -8,3 +8,13 @@
   api_key: !secret google_travel_time_api_key
   origin: !secret google_travel_time_work
   destination: !secret google_travel_time_home
+- platform: google_travel_time
+  api_key: !secret google_travel_time_api_key
+  name: Tegan to Zac
+  origin: device_tracker.tegan_nexus_6p
+  destination: device_tracker.zac_nexus_6p
+- platform: google_travel_time
+  api_key: !secret google_travel_time_api_key
+  name: Zac to Tegan
+  origin: device_tracker.zac_nexus_6p
+  destination: device_tracker.tegan_nexus_6p

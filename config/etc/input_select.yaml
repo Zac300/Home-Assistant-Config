@@ -25,3 +25,9 @@ google_music_playlist:
   name: 'Select Playlist:'
   options:
    - " "   # Should be empty
+center_map_on:
+  name: Center Map On
+  icon: mdi:account-multiple
+  options:
+    - Zac
+    - Tegan

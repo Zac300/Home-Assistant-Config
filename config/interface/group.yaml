@@ -8,12 +8,6 @@ dashboard:
     - group.all_lights
     - group.weather_overview
     - climate.sharp_split_system
-arlo_view:
-  name: Arlo
-  view: yes
-  icon: mdi:video
-  entities:
-    - group.arlo
 switch_view:
   name: Switches
   view: yes
@@ -23,16 +17,15 @@ switch_view:
     - climate.sharp_split_system
     - media_player.sony_tv
     - media_player.lg_tv
-download_view:
-  name: Download
+travel_view:
+  name: Travel
   view: yes
-  icon: mdi:cloud-download
+  icon: mdi:google-maps
   entities:
-    - group.sonarr
-    - group.radarr
-    - group.sabnzbd
-    - group.transmission
-    - group.speedtest
+    - group.map
+    - group.travel_time
+    - group.device_tracker_street_view
+    - group.send_push_updates
 cast_view:
   name: Cast
   view: yes
@@ -48,12 +41,22 @@ cast_view:
     - media_player.lounge_soundbar
     - media_player.lounge_group
     - media_player.whole_home
-travel_view:
-  name: Travel
+arlo_view:
+  name: Arlo
   view: yes
-  icon: mdi:car
+  icon: mdi:video
   entities:
-    - group.travel
+    - group.arlo
+download_view:
+  name: Download
+  view: yes
+  icon: mdi:cloud-download
+  entities:
+    - group.sonarr
+    - group.radarr
+    - group.sabnzbd
+    - group.transmission
+    - group.speedtest
 ## FLIC GROUP ##
 flic:
   name: Flic
@@ -262,10 +265,29 @@ people:
     - device_tracker.tegan_nexus_6p
     - sensor.tegan_address
     - sensor.tegan_phone_battery
-### TRAVEL GROUP ###
-travel:
+### WORK TRAVEL GROUP ###
+travel_time:
   name: Travel
   entities:
+    - sensor.zac_to_tegan
+    - sensor.tegan_to_zac
     - sensor.commute
     - sensor.home_to_work
     - sensor.work_to_home
+### MAP GROUPS ###
+device_tracker_street_view:
+  name: "Street Views"
+  entities:
+    - camera.street_view_zac
+    - camera.street_view_tegan
+send_push_updates:
+  name: "Travel Updates"
+  entities:
+    - input_boolean.push_notification_distance_zac_to_tegan
+    - input_boolean.push_notification_distance_tegan_to_zac
+map:
+  name: "Map"
+  entities:
+    - camera.map_location
+    - input_number.map_zoom
+    - input_select.center_map_on
