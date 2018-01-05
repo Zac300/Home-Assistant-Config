@@ -70,6 +70,7 @@ Home Assistant Version: 0.60.0
 | Name                                                  | Link |
 | ----------------------------------------------------- | ---- |
 | fliclib                                               | [(GitHub)](https://github.com/50ButtonsEach/fliclib-linux-hci) |
+| Floorplan Custom Panel                                | [(Community)](https://community.home-assistant.io/t/floorplan-for-home-assistant/17394) |
 
 #### Climate
 | Name                                                  | Link |
