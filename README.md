@@ -6,7 +6,7 @@ Home Assistant Version: 0.60.0
 * [Raspberry PI 3 Model B](http://au.element14.com/buy-raspberry-pi?&CMP=KNC-GAU-GEN-SKU-PSP-STL-RPI3&mckv=szEgWGgK7_dc%7Cpcrid%7C238407451184%7Cpkw%7C%2Belement14%20%2Bpi%20%2B3%7Cpmt%7Cb%7Cslid%7CE0QUwafP%7Cproduct%7C%7C&gclid=Cj0KCQiAyZLSBRDpARIsAH66VQK5HeckMfiD1iPzSbrMpRJeNTs-IJuUHgCkgFjuTeIZmITQ4rQ6WF0aAnQQEALw_wcB)
 * [SanDisk Ultra 32GB microSDHC](https://www.ebay.com.au/sch/sis.html?_nkw=Sandisk+64GB+Micro+SD+SDXC+Ultra+Class+10+80MB%2Fs+Mobile+Memory+Card+Samsung&_id=331081740883&&_trksid=p2057872.m2749.l2658)
 * [NGNIX proxy](https://home-assistant.io/docs/ecosystem/nginx/)
-* SSL via [SSLs](https://www.ssls.com/)
+* SSL via [AlphaSSL](https://www.alphassl.com)
 
 ## Hardware
 #### Lighting
@@ -46,6 +46,7 @@ Home Assistant Version: 0.60.0
 | 1     | Google Home                                           | [(Google)](https://store.google.com/au/product/google_home) |
 | 1     | Google Home Mini                                      | [(Google)](https://store.google.com/au/product/google_home_mini) |
 | 1     | LG 60UB850T 60" TV                                    | [(LG)](http://www.lg.com/au/tvs/lg-60UB850T) |
+| 1     | Sony 46HX800 46" TV                                   | [(Sony)](http://www.sony.com.au/electronics/support/televisions-projectors-lcd-tvs/kdl-46hx800/specifications) |
 
 #### Network
 | Qty   | Name                                                  | Link |
