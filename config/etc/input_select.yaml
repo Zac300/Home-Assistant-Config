@@ -31,3 +31,13 @@ center_map_on:
   options:
     - Zac
     - Tegan
+house_mode:
+  name: House Mode
+  icon: mdi:home
+  initial: None
+  options:
+   - None
+   - Morning
+   - Watch Lounge TV
+   - Watch Living TV
+   - Bedtime
