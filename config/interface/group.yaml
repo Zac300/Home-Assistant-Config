@@ -80,7 +80,7 @@ lounge_hall:
   name: Lounge n Hall
   entities:
    - light.hallway
-   - light.lounge
+   - light.main
    - light.corner_lamp
    - light.tv
    - light.cabinet
@@ -121,7 +121,7 @@ all_lights:
   - light.tv
   - light.cabinet
   - light.corner_lamp
-  - light.lounge
+  - light.main
   - light.hallway
   - light.bedroom
   - light.bedside_lamp
