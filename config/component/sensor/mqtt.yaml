@@ -8,3 +8,8 @@
   state_topic: !secret mqtt_topic_battery_level_tegan
   qos: 0
   unit_of_measurement: "%"
+- platform: mqtt
+  name: "Wallpanel Battery"
+  state_topic: !secret mqtt_topic_battery_level_wallpanel
+  qos: 0
+  unit_of_measurement: "%"
