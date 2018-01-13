@@ -39,6 +39,20 @@ bedtime:
       state: 'on'
     - service: media_player.turn_off
       entity_id: media_player.lg_tv
+morning:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.hallway
+    - service: homeassistant.turn_off
+      entity_id: switch.arlec_switch_3
+living_room_watch_tv:
+  sequence:
+    - condition: state
+      entity_id: media_player.sony_tv
+      state: 'off'
+    - service: media_player.turn_on
+      entity_id: media_player.sony_tv
 living_room_tv_volume_up:
   sequence:
     - service: media_player.volume_up
