@@ -1,6 +1,6 @@
 This is my [Home Assistant](https://home-assistant.io) configuration which is running on a [Raspberry PI 3 ](http://au.element14.com/buy-raspberry-pi?&CMP=KNC-GAU-GEN-SKU-PSP-STL-RPI3&mckv=szEgWGgK7_dc%7Cpcrid%7C238407451184%7Cpkw%7C%2Belement14%20%2Bpi%20%2B3%7Cpmt%7Cb%7Cslid%7CE0QUwafP%7Cproduct%7C%7C&gclid=Cj0KCQiAyZLSBRDpARIsAH66VQK5HeckMfiD1iPzSbrMpRJeNTs-IJuUHgCkgFjuTeIZmITQ4rQ6WF0aAnQQEALw_wcB) using a [Hassbian](https://home-assistant.io/docs/installation/hassbian/installation/) image.
 
-Home Assistant Version: 0.60.0
+Home Assistant Version: 0.61.0
 
 ## Platform
 * [Raspberry PI 3 Model B](http://au.element14.com/buy-raspberry-pi?&CMP=KNC-GAU-GEN-SKU-PSP-STL-RPI3&mckv=szEgWGgK7_dc%7Cpcrid%7C238407451184%7Cpkw%7C%2Belement14%20%2Bpi%20%2B3%7Cpmt%7Cb%7Cslid%7CE0QUwafP%7Cproduct%7C%7C&gclid=Cj0KCQiAyZLSBRDpARIsAH66VQK5HeckMfiD1iPzSbrMpRJeNTs-IJuUHgCkgFjuTeIZmITQ4rQ6WF0aAnQQEALw_wcB)
