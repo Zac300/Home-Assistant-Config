@@ -7,3 +7,116 @@ exposed_domains:
   - !secret google_assistant_exposed_domains_1
   - !secret google_assistant_exposed_domains_2
   - !secret google_assistant_exposed_domains_3
+entity_config:
+  switch.arlec_switch_3:
+    expose: true
+    name: Sound Machine
+    type: switch
+  switch.soundbar_toggle_input:
+    expose: false
+  switch.sony_tv_power_toggle:
+    expose: false
+  switch.google_music:
+    expose: false
+  media_player.sony_tv:
+    expose: true
+    name: Sony TV
+    type: media_player
+  media_player.lg_tv:
+    expose: true
+    name: LG TV
+    type: media_player
+  climate.sharp_split_system:
+    expose: true
+    name: Sharp Split System
+    type: climate
+    aliases:
+      - Living Room Air Conditioner
+      - Living Room A C
+      - Split System
+  fan.lounge:
+    expose: true
+    name: Lounge Fan
+    type: fan
+    aliases:
+      - Fan
+      - Lounge Room Fan
+  script.watch_tv:
+    expose: true
+    name: Watch TV
+    type: script
+    aliases:
+      - Watch a movie
+      - Couch time
+      - Time to relax
+  script.bedtime:
+    expose: true
+    name: Bedtime
+    type: script
+    aliases:
+      - Time to sleep
+      - Go to bed
+  script.living_room_tv_volume_up:
+    expose: true
+    name: Living Room TV volume up
+    type: script
+    aliases:
+      - Turn up Sony TV
+      - Louder Living Room TV
+      - Louder Sony TV
+      - Sony TV up
+      - Sony TV louder
+      - Sony TV volume up
+      - Living Room TV volume up
+      - Volume up Sony TV
+      - Volume up Living Room TV
+      - Increase Sony TV volume
+      - Increase Living Room TV volume
+  script.living_room_tv_volume_down:
+    expose: true
+    name: Living Room TV volume down
+    type: script
+    aliases:
+      - Turn down Sony TV
+      - Quieter Living Room TV
+      - Quieter Sony TV
+      - Sony TV down
+      - Sony TV quieter
+      - Sony TV volume down
+      - Living Room TV volume down
+      - Volume down Sony TV
+      - Volume down Living Room TV
+      - Decrease Sony TV volume
+      - Decrease Living Room TV volume
+  script.lounge_room_tv_volume_up:
+    expose: true
+    name: Lounge Room TV volume up
+    type: script
+    aliases:
+      - Turn up LG TV
+      - Louder Lounge Room TV
+      - Louder LG TV
+      - LG TV up
+      - LG TV louder
+      - LG TV volume up
+      - Lounge Room TV volume up
+      - Volume up LG TV
+      - Volume up Lounge Room TV
+      - Increase LG TV volume
+      - Increase Lounge Room TV volume
+  script.lounge_room_tv_volume_down:
+    expose: true
+    name: Lounge Room TV volume down
+    type: script
+    aliases:
+      - Turn down LG TV
+      - Quieter Lounge Room TV
+      - Quieter LG TV
+      - LG TV down
+      - LG TV quieter
+      - LG TV volume down
+      - Lounge Room TV volume down
+      - Volume down LG TV
+      - Volume down Lounge Room TV
+      - Decrease LG TV volume
+      - Decrease Lounge Room TV volume

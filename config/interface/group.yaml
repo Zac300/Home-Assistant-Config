@@ -158,6 +158,7 @@ weather_overview:
     - sensor.pws_temp_low_1d_c
     - sensor.pws_temp_high_1d_c
     - sensor.pws_temp_c
+    - weather.dark_sky
 daily_forecast:
   name: Daily Forecast
   entities:
@@ -227,8 +228,8 @@ systemmonitor:
 all_switches:
   name: Switch
   entities:
-    - switch.arlec_switch_1
-    - switch.arlec_switch_2
+#    - switch.arlec_switch_1
+#    - switch.arlec_switch_2
     - switch.arlec_switch_3
 ### RADIO GROUP ###
 radio:
