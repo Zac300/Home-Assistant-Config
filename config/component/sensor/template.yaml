@@ -1,13 +1,52 @@
 - platform: template
   sensors:
-    commute:
-      friendly_name: "Commute"
-      unit_of_measurement: 'Min'
+    center_map_on:
       value_template: >-
-          {% if is_state('device_tracker.zac_nexus_6p', 'home') %}
-            {{ states.sensor.home_to_work.state }}
-          {% elif is_state('device_tracker.zac_nexus_6p', 'work') %}
-            {{ states.sensor.work_to_home.state }}
+        {% set center = states.input_select.center_map_on.state %}
+        {% if center == "Zac"%}
+          {% set lat = states.device_tracker.zac_nexus_6p.attributes.latitude %}
+          {% set long = states.device_tracker.zac_nexus_6p.attributes.longitude %}
+        {% elif center == "Tegan"%}
+          {% set lat = states.device_tracker.tegan_nexus_6p.attributes.latitude %}
+          {% set long = states.device_tracker.tegan_nexus_6p.attributes.longitude %}
+        {% else %}
+          {% set lat = states.device_tracker.zac_nexus_6p.attributes.latitude %}
+          {% set long = states.device_tracker.zac_nexus_6p.attributes.longitude %}
+        {% endif %}
+        {{ [lat,long]|join(',') }}
+- platform: template
+  sensors:
+    google_staticmap_api_key:
+      value_template: !secret google_staticmap_api_key
+- platform: template
+  sensors:
+    google_streetview_api_key:
+      value_template: !secret google_streetview_api_key
+- platform: template
+  sensors:
+    map_markers:
+      value_template: >-
+        {% set center = states.input_select.center_map_on.state %}
+        {% if states.sensor.zac_to_tegan.state|int == 0 and states.input_number.map_zoom.state|int < 21 %}
+          {% set p1markers = 'color:green|label:2' %}
+          {% set p1latitude = states.device_tracker.zac_nexus_6p.attributes.latitude %}
+          {% set p1longitude = states.device_tracker.zac_nexus_6p.attributes.longitude %}
+          markers={{ p1markers }}|{{ [p1latitude,p1longitude]|join(',') }}
+        {% else %}
+          {% if center == "Tegan" %}
+            {% set p1markers = 'color:pink|label:T' %}
+            {% set p1latitude = states.device_tracker.tegan_nexus_6p.attributes.latitude %}
+            {% set p1longitude = states.device_tracker.tegan_nexus_6p.attributes.longitude %}
+            {% set p2markers = 'color:blue|label:Z' %}
+            {% set p2latitude = states.device_tracker.zac_nexus_6p.attributes.latitude %}
+            {% set p2longitude = states.device_tracker.zac_nexus_6p.attributes.longitude %}
           {% else %}
-            0
+            {% set p1markers = 'color:blue|label:Z' %}
+            {% set p1latitude = states.device_tracker.zac_nexus_6p.attributes.latitude %}
+            {% set p1longitude = states.device_tracker.zac_nexus_6p.attributes.longitude %}
+            {% set p2markers = 'color:pink|label:T' %}
+            {% set p2latitude = states.device_tracker.tegan_nexus_6p.attributes.latitude %}
+            {% set p2longitude = states.device_tracker.tegan_nexus_6p.attributes.longitude %}
           {% endif %}
+          markers={{ p1markers }}|{{ [p1latitude,p1longitude]|join(',') }}&markers={{ p2markers }}|{{ [p2latitude,p2longitude]|join(',') }}
+        {% endif %}

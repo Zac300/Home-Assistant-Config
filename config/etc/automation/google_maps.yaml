@@ -1,0 +1,43 @@
+#################################################################################################
+#                           TRAVEL TIME PUSH NOTIFICATIONS                                      #
+#################################################################################################
+
+- alias: 'Push Travel Time From Tegan to Zac'
+  initial_state: on
+  trigger:
+    - platform: time
+      minutes: '/5'
+      seconds: '0'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ is_state("input_boolean.push_notification_distance_tegan_to_zac", "on") }}'
+      - condition: numeric_state
+        entity_id: sensor.tegan_to_zac
+        above: 1
+  action:
+    - service: notify.pushbullet
+      data_template:
+        title: 'Tegan is {{states.sensor.tegan_to_zac.state}} minutes away'
+        target: !secret pushbullet_channel_travel_updates
+        message: "Approximate ETA based on current traffic conditions and last known location"
+- alias: 'Tegan Has Arrived'
+  initial_state: on
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.tegan_to_zac
+      below: 2
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ is_state("input_boolean.push_notification_distance_tegan_to_zac", "on") }}'
+  action:
+    - service: notify.pushbullet
+      data_template:
+        title: 'Tegan has arrived'
+        target: !secret pushbullet_channel_travel_updates
+        message: "Tegan is here."
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.push_notification_distance_tegan_to_zac

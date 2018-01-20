@@ -10,3 +10,9 @@
   payload_on: "1"
   payload_off: "0"
   sensor_class: connectivity
+- platform: mqtt
+  name: "Wallpanel MQTT status"
+  state_topic: !secret mqtt_topic_status_wallpanel
+  payload_on: "1"
+  payload_off: "0"
+  sensor_class: connectivity

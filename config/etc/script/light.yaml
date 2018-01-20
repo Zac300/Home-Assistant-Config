@@ -25,17 +25,17 @@ select_lounge:
         entity_id: input_boolean.lounge_selected
     - service: light.toggle
       data:
-        entity_id: light.lounge
+        entity_id: light.main
     - delay:
         seconds: 0.5
     - service: light.toggle
       data:
-        entity_id: light.lounge
+        entity_id: light.main
     - delay:
         seconds: 0.5
     - service: light.turn_on
       data:
-        entity_id: light.lounge
+        entity_id: light.main
 select_hallway:
   sequence:
     - service: input_boolean.turn_off

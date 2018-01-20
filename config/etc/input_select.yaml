@@ -25,3 +25,19 @@ google_music_playlist:
   name: 'Select Playlist:'
   options:
    - " "   # Should be empty
+center_map_on:
+  name: Center Map On
+  icon: mdi:account-multiple
+  options:
+    - Zac
+    - Tegan
+house_mode:
+  name: House Mode
+  icon: mdi:home
+  initial: None
+  options:
+   - None
+   - Morning
+   - Watch Lounge TV
+   - Watch Living TV
+   - Bedtime

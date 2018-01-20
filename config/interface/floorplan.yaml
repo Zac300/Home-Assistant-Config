@@ -16,7 +16,7 @@
         - name: Lights
           entities:
              - light.hallway
-             - light.lounge
+             - light.main
              - light.tv
              - light.cabinet
              - light.corner_lamp

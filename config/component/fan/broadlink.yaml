@@ -1,0 +1,15 @@
+- platform: broadlink
+  name: Lounge
+  host: !secret broadlink_pro_host
+  mac: !secret broadlink_pro_mac
+  rfcodes_ini: 'config/component/fan/broadlink_fan_codes/heller_fan.ini'
+  default_speed: low-swing
+  defaut_direction: left
+  customize:
+    speeds:
+       - low
+       - low-swing
+       - medium
+       - medium-swing
+       - high
+       - high-swing

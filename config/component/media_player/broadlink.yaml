@@ -4,3 +4,9 @@
   mac: !secret broadlink_mini_mac
   ircodes_ini: 'config/component/media_player/broadlink_media_codes/sony_tv.ini'
   ping_host: !secret broadlink_sony_tv_ping_host
+- platform: broadlink
+  name: LG TV
+  host: !secret broadlink_pro_host
+  mac: !secret broadlink_pro_mac
+  ircodes_ini: 'config/component/media_player/broadlink_media_codes/lg_tv.ini'
+  ping_host: !secret broadlink_lg_tv_ping_host

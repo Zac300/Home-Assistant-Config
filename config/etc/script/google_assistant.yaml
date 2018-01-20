@@ -13,6 +13,11 @@ watch_tv:
       entity_id: switch.arlec_switch_1
     - service: homeassistant.turn_on 
       entity_id: switch.arlec_switch_2
+    - condition: state
+      entity_id: media_player.lg_tv
+      state: 'off'
+    - service: media_player.turn_on
+      entity_id: media_player.lg_tv
 bedtime:
   sequence:
     - service: light.turn_off
@@ -22,6 +27,9 @@ bedtime:
       data:
         entity_id: light.hallway
         brightness: 65
+    - service: light.turn_off
+      data:
+        entity_id: group.bedroom
     - service: light.turn_on
       data:
         entity_id: light.bedside_lamp
@@ -29,27 +37,59 @@ bedtime:
       entity_id: switch.arlec_switch_1
     - service: homeassistant.turn_off
       entity_id: switch.arlec_switch_2
+    - service: fan.turn_off
+      data:
+        entity_id: fan.lounge
     - service: homeassistant.turn_on 
       entity_id: switch.arlec_switch_3
-living_room_tv_power_toggle:
+    - condition: state
+      entity_id: media_player.lg_tv
+      state: 'on'
+    - service: media_player.turn_off
+      entity_id: media_player.lg_tv
+morning:
   sequence:
-    - service: broadlink.send_packet_10_0_0_165
+    - service: light.turn_on
       data:
-        packet:
-          - 'JgCMAE0VJhQUFCYUFBQmFBMVEhUmFRIVEhUTFBMAA01MFiYVExQnFBMUJhUSFRIVJhUTFBMUExUSAANNTRUnFBIVJhUTFCYVEhUSFSYVExQSFRMUFQADS04UJhUSFSYVEhUmFRMUExQlFhIVExQUFBIAA05MFSYVEhUpEhMUJxQSFRMUJxQTFBMVEhUSAA0FAAAAAAAAAAAAAAAA'
+        entity_id: light.hallway
+    - service: homeassistant.turn_off
+      entity_id: switch.arlec_switch_3
+living_room_watch_tv:
+  sequence:
+    - condition: state
+      entity_id: media_player.sony_tv
+      state: 'off'
+    - service: media_player.turn_on
+      entity_id: media_player.sony_tv
 living_room_tv_volume_up:
   sequence:
-    - service: broadlink.send_packet_10_0_0_165
-      data:
-        packet:
-          - 'JgBUAE0VExUlFRQUExQmFRMUEhUnFBEWEhUSFRIAA2JNFRIVJhUSFhAXJxMTFBEWJhUVEhMVEhUSAANhSxcSFSYVEhUSFSYVEhYSFCcUEhYSFRIVEgANBQAAAAA='
-          - 'JgBUAE0VExUlFRQUExQmFRMUEhUnFBEWEhUSFRIAA2JNFRIVJhUSFhAXJxMTFBEWJhUVEhMVEhUSAANhSxcSFSYVEhUSFSYVEhYSFCcUEhYSFRIVEgANBQAAAAA='
-          - 'JgBUAE0VExUlFRQUExQmFRMUEhUnFBEWEhUSFRIAA2JNFRIVJhUSFhAXJxMTFBEWJhUVEhMVEhUSAANhSxcSFSYVEhUSFSYVEhYSFCcUEhYSFRIVEgANBQAAAAA='
+    - service: media_player.volume_up
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_up
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_up
+      entity_id: media_player.sony_tv
 living_room_tv_volume_down:
   sequence:
-    - service: broadlink.send_packet_10_0_0_165
-      data:
-        packet:
-          - 'JgBUAEwVJhYlFRMVEBYnFRIVERUnFREWEhQTFRIAA05LFiYVJxURFRMVJRYPFxIVJxURFRIVEhYTAANOTBUlFScUEhYTFCUVExUTFCYVEhUSFRMUEwANBQAAAAA='
-          - 'JgBUAEwVJhYlFRMVEBYnFRIVERUnFREWEhQTFRIAA05LFiYVJxURFRMVJRYPFxIVJxURFRIVEhYTAANOTBUlFScUEhYTFCUVExUTFCYVEhUSFRMUEwANBQAAAAA='
-          - 'JgBUAEwVJhYlFRMVEBYnFRIVERUnFREWEhQTFRIAA05LFiYVJxURFRMVJRYPFxIVJxURFRIVEhYTAANOTBUlFScUEhYTFCUVExUTFCYVEhUSFRMUEwANBQAAAAA='
+    - service: media_player.volume_down
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_down
+      entity_id: media_player.sony_tv
+    - service: media_player.volume_down
+      entity_id: media_player.sony_tv
+lounge_room_tv_volume_up:
+  sequence:
+    - service: media_player.volume_up
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_up
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_up
+      entity_id: media_player.lg_tv
+lounge_room_tv_volume_down:
+  sequence:
+    - service: media_player.volume_down
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_down
+      entity_id: media_player.lg_tv
+    - service: media_player.volume_down
+      entity_id: media_player.lg_tv

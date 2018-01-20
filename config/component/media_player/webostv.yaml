@@ -1,0 +1,3 @@
+- platform: webostv
+  host: !secret webostv_host
+  name: Lounge TV

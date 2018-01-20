@@ -3,3 +3,4 @@
   devices:
     zac_nexus_6p: !secret mqtt_topic_location_zac
     tegan_nexus_6p: !secret mqtt_topic_location_tegan
+    wallpanel: !secret mqtt_topic_location_wallpanel

@@ -18,16 +18,6 @@
   action:
     service: light.toggle
     entity_id: light.hallway
-- alias: Toggle Cabinet if flic is pressed once
-  trigger:
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da7186ac
-        click_type: single
-  action:
-    service: light.toggle
-    entity_id: light.cabinet
 - alias: Toggle TV if flic is pressed once
   trigger:
     - platform: event
@@ -57,7 +47,7 @@
         click_type: single
   action:
     service: light.toggle
-    entity_id: light.lounge
+    entity_id: light.main
 - alias: Toggle Kitchen Sink if flic is pressed once
   trigger:
     - platform: event
@@ -102,20 +92,6 @@
         color_name: white
         transition: 0.5
         brightness: '{{ ((states.input_number.hallway_brightness.state | int *2.5)) | int }}'
-- alias: Reset lights in cabinet if flic is pressed once
-  trigger:
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da7186ac
-        click_type: hold
-  action:
-    - service: light.turn_on
-      data_template:
-        entity_id: light.cabinet
-        color_name: white
-        transition: 0.5
-        brightness: '{{ ((states.input_number.cabinet_brightness.state | int *2.5)) | int }}'
 - alias: Reset lights in TV if flic is pressed once
   trigger:
     - platform: event
@@ -154,7 +130,7 @@
   action:
     - service: light.turn_on
       data_template:
-        entity_id: light.lounge
+        entity_id: light.main
         color_name: white
         transition: 0.5
         brightness: '{{ ((states.input_number.lounge_brightness.state | int *2.5)) | int }}'
@@ -262,7 +238,7 @@
       state: 'on'
   action:
     service: light.toggle
-    entity_id: light.lounge
+    entity_id: light.main
 - alias: Change Hallway Brightness
   trigger:
     - platform: state
@@ -299,33 +275,6 @@
            {{ 20 | int }}
         {% else %}
            {{ ((states.input_number.hallway_brightness.state | int + 20)) | int }}
-        {% endif %}
-- alias: Change Cabinet Brightness
-  trigger:
-    - platform: state
-      entity_id: input_number.cabinet_brightness
-  action:
-    - service: light.turn_on
-      data_template:
-        entity_id: light.cabinet
-        transition: 0.5
-        brightness: '{{ ((states.input_number.cabinet_brightness.state | int *2.5)) | int }}'
-- alias: Toggle Cabinet Brightness if flic is double pressed
-  trigger:
-    - platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_80e4da7186ac
-        click_type: double
-  action:
-    service: input_number.set_value
-    entity_id: input_number.cabinet_brightness
-    data_template:
-      value: >-
-        {% if states.input_number.cabinet_brightness.state | int > 80 %}
-           {{ 20 | int }}
-        {% else %}
-           {{ ((states.input_number.cabinet_brightness.state | int + 20)) | int }}
         {% endif %}
 - alias: Change TV Brightness
   trigger:
@@ -388,7 +337,7 @@
   action:
     - service: light.turn_on
       data_template:
-        entity_id: light.lounge
+        entity_id: light.main
         transition: 0.5
         brightness: '{{ ((states.input_number.lounge_brightness.state | int *2.5)) | int }}'
 - alias: Toggle Hallway Brightness if Lounge flic is double pressed
@@ -600,7 +549,7 @@
         brightness: 200
         transition: '{{ (range(1, 2)|random) }}'
     - service: light.turn_on
-      entity_id: light.lounge
+      entity_id: light.main
       data_template:
         rgb_color: ['{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}', '{{ (range(0, 255)|random) }}']
         brightness: 200

@@ -6,5 +6,5 @@
     service: notify.pushbullet
     data_template: 
       title: 'New Home Assistant Release'
-      target: 'channel/homeassistantupdates'
+      target: !secret pushbullet_channel_homeassistant_updates
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."

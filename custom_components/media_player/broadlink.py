@@ -8,6 +8,7 @@ import subprocess as sp
 import voluptuous as vol
 import homeassistant.util as util
 import homeassistant.helpers.config_validation as cv
+import json
 
 from homeassistant.components.media_player import (
     SUPPORT_TURN_ON, SUPPORT_TURN_OFF, SUPPORT_VOLUME_MUTE, 
@@ -172,17 +173,19 @@ class BroadlinkIRMediaPlayer(MediaPlayerDevice):
     def send_ir(self, section, value):
         command = self._commands_ini.get(section, value)
         
-        for retry in range(DEFAULT_RETRY):
-            try:
-                payload = b64decode(command)
-                self._broadlink_device.send_data(payload)
-                break
-            except (socket.timeout, ValueError):
+        packets = json.loads(command)
+        for packet in packets:
+            for retry in range(DEFAULT_RETRY):
                 try:
-                    self._broadlink_device.auth()
-                except socket.timeout:
-                    if retry == DEFAULT_RETRY-1:
-                        _LOGGER.error("Failed to send packet to Broadlink RM Device")
+                    payload = b64decode(packet)
+                    self._broadlink_device.send_data(payload)
+                    break
+                except (socket.timeout, ValueError):
+                    try:
+                        self._broadlink_device.auth()
+                    except socket.timeout:
+                        if retry == DEFAULT_RETRY-1:
+                            _LOGGER.error("Failed to send packet to Broadlink RM Device")
         
     @property
     def name(self):
@@ -294,8 +297,8 @@ class BroadlinkIRMediaPlayer(MediaPlayerDevice):
                 ping_cmd = ['ping', '-n', '1', '-w',
                             str(DEFAULT_PING_TIMEOUT * 1000), str(self._ping_host)]
             else:
-                ping_cmd = ['nc', '-vz',
-                             str(self._ping_host), str(self._ping_port)]
+                ping_cmd = ['nc', '-vz', '-w',
+                             str(DEFAULT_PING_TIMEOUT), str(self._ping_host), str(self._ping_port)]
 
             status = sp.call(ping_cmd, stdout=sp.DEVNULL, stderr=sp.DEVNULL)
             self._state = STATE_ON if not bool(status) else STATE_OFF
