@@ -1,0 +1,39 @@
+- id: arm_away_arlo_night
+  alias: Arm Away at night
+  trigger:
+    platform: time
+    at: '23:00:00'
+  action:
+    service: alarm_control_panel.alarm_arm_away
+    entity_id: alarm_control_panel.home
+- id: arm_home_arlo_morning
+  alias: Arm Home in morning
+  trigger:
+    platform: time
+    at: '06:00:00'
+  action:
+    service: alarm_control_panel.alarm_arm_home
+    entity_id: alarm_control_panel.home
+- id: notify_arlo_mode_state_change
+  alias: Notify Arlo mode state changes
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home
+      from: 'armed_home'
+    - platform: state
+      entity_id: alarm_control_panel.home
+      from: 'armed_away'
+    - platform: state
+      entity_id: alarm_control_panel.home
+      from: 'disarmed'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ states.alarm_control_panel.home.state != "unknown" }}'
+  action:
+    - service: notify.pushbullet
+      data_template:
+        title: 'Arlo mode changed'
+        target: !secret pushbullet_channel_arlo_updates
+        message: "State is now {{states.alarm_control_panel.home.state}}."
