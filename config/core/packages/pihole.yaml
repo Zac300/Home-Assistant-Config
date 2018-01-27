@@ -1,0 +1,129 @@
+#-------------------------------------------
+#  PiHole ad Blocking Related Packages
+#-------------------------------------------
+homeassistant:
+  customize:
+
+    sensor.pihole_ads_percentage_today:
+      friendly_name: Percentage of Ad Traffic Blocked
+      unit_of_measurement: '%'
+      icon: mdi:ticket-percent
+
+    sensor.pihole_domains_being_blocked:
+      friendly_name: Total Domains Blocking
+      icon: mdi:do-not-disturb
+
+    sensor.pihole_dns_unique_clients:
+      friendly_name: Unique Clients
+      icon: mdi:desktop-classic
+
+    sensor.pihole_ads_blocked_today:
+      friendly_name: Ads Blocked Today
+      icon: mdi:do-not-disturb
+
+    sensor.pihole_dns_queries_today:
+      friendly_name: DNS Queries Today
+      icon: mdi:note-text
+
+    sensor.pihole:
+      friendly_name: Pi Hole Server
+      icon: mdi:filter-variant
+
+#-------------------------------------------
+sensor:
+  - platform: pi_hole
+    host: !secret pi_hole_host
+    monitored_conditions:
+      - dns_queries_today
+      - ads_blocked_today
+      - ads_percentage_today
+      - unique_clients
+
+  - platform: template
+    sensors:
+      pihole:
+        friendly_name: 'Pi-hole'
+        value_template: "{{ 'Online' if is_state('device_tracker.pihole', 'home') else 'Offline' }}"
+      network_home_count:
+        friendly_name: 'Network Home Count'
+        value_template: >
+          {%- set domains = ['device_tracker'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain]
+                if (item.attributes.source_type is defined and item.state == 'home') -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      network_away_count:
+        friendly_name: 'Network Away Count'
+        value_template: >
+          {%- set domains = ['device_tracker'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain]
+                if (item.attributes.source_type is defined and item.state != 'home') -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+# Pi-Hole switch
+switch:
+  - platform: command_line
+    switches:
+      pihole:
+        friendly_name: Pi-hole
+        command_on: !secret pi_hole_enable
+        command_off: !secret pi_hole_disable
+        command_state: !secret pi_hole_status
+        value_template: '{{ value_json.status == "enabled" }}'
+
+#-------------------------------------------
+group:
+  pihole:
+    name: Pi-hole
+    entities:
+      - sensor.pihole
+      - sensor.pi_hole_version
+      - sensor.pihole_dns_unique_clients
+      - sensor.network_home_count
+      - sensor.network_away_count
+      - sensor.pihole_dns_queries_today
+      - sensor.pihole_ads_blocked_today
+      - sensor.pihole_ads_percentage_today
+      - sensor.pihole_ads_percentage_blocked_today
+      - switch.pihole
+#-------------------------------------------
+
+
+automation:
+  - alias: PiHole Daily stats Tweet!
+    trigger:
+      platform: time
+      at: '23:50:00'
+    action:
+      - delay: '00:{{ (range(1, 9)|random|int) }}:00'
+      - service: script.tweet_engine
+        data_template:
+          tweet: >
+            {{ [
+            "I blocked {{states.sensor.pihole_ads_blocked_today.state}} ads. That is {{states.sensor.pihole_ads_percentage_blocked_today.state}}% of my internet traffic.",
+            "Today was a good day! Why, you ask? Because I blocked {{states.sensor.pihole_ads_blocked_today.state}} ads via Pi-Hole!",
+            ] | random + " #PiHole #Security Status:({{states.sensor.pihole.state}})"}}
+
+  - alias: PiHole Daily Client Tweet!
+    trigger:
+      platform: time
+      at: '04:30:00'
+    action:
+      - delay: '{{ (range(1, 6)|random|int) }}:{{ (range(1, 50)|random|int) }}:00'
+      - service: script.tweet_engine
+        data_template:
+          tweet: >
+            {{ [
+            "There are currently {{states.sensor.network_home_count.state}} #UniFi clients on my network.",
+            "Currently there are {{states.sensor.network_away_count.state}} offline clients.",
+            "Currently there are {{states.sensor.pihole_dns_unique_clients.state}} #PiHole unique clients.",
+            ] | random + "#Security"}}

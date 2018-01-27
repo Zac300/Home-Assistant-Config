@@ -99,6 +99,7 @@ Home Assistant Version: 0.61.1
 | Name                                                  | Link |
 | ----------------------------------------------------- | ---- |
 | OpenWrt                                               | [(OpenWrt)](https://openwrt.org) |
+| Pi-hole                                               | [(Pi-hole)](https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt) |
 | Telstra Custom Component                              | [(Community)](https://community.home-assistant.io/t/telstra-notification-add-on/28096) |
 
 #### Location
