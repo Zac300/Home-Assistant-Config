@@ -6,7 +6,7 @@ notify:
     access_token: !secret twitter_access_token
     access_token_secret: !secret twitter_access_token_secret
 
-### Building out some Historical stats for tweeting. #####################
+### Building some Historical stats for tweeting. ###
 sensor:
   - platform: history_stats
     name: Flic Presses
@@ -26,6 +26,65 @@ sensor:
     duration:
       hours: 24
 
+### Building some interesting stats for tweeting. ###
+  - platform: template
+    sensors:
+      sensor_count:
+        friendly_name: 'Number of Sensors'
+        value_template: >
+          {%- set domains = ['sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      automation_count:
+        friendly_name: 'Number of Automations'
+        value_template: >
+          {%- set domains = ['automation'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      script_count:
+        friendly_name: 'Number of Scripts'
+        value_template: >
+          {%- set domains = ['script'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      media_play_count:
+        friendly_name: 'Number of Media Players'
+        value_template: >
+          {%- set domains = ['media_player'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+      binary_sensor_count:
+        friendly_name: 'Number of Binary Sensors'
+        value_template: >
+          {%- set domains = ['binary_sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
 script:
   tweet_engine:
     sequence:
@@ -38,7 +97,7 @@ script:
       - service: notify.DingoDailyHA
         data_template:
           message: >-
-            {{ tweet }} #IOT #SmartHome
+            {{ tweet }} #IoT #SmartHome
 
 automation:
   - alias: 'New Twitter follower!'
@@ -117,6 +176,9 @@ automation:
             "Home Assistant has been running for {{states.sensor.uptime.state}} days. (https://github.com/Zac300/Home-Assistant-Config)",
             "So far, I have prevented {{states.sensor.pihole_ads_blocked_today.state}} ads from hitting the network via Pi-hole! http://www.pi-hole.net",
             "Pi-hole (http://www.pi-hole.net) has serviced {{states.sensor.pihole_dns_queries_today.state}} DNS requests today! #Pi3 #Raspberry",
+            "There are currently {{((states.sensor.sensor_count.state | int) + (states.sensor.binary_sensor_count.state | int))}} sensors feeding my Home Assistant smart home (https://github.com/Zac300/Home-Assistant-Config)",
+            "{{states.sensor.automation_count.state}} automations and {{states.sensor.script_count.state}} scripts make my home smart (https://github.com/Zac300/Home-Assistant-Config)",
+            "{{states.sensor.media_player_count.state}} media players ensure I can party late into the night with Home Assistant (https://github.com/Zac300/Home-Assistant-Config)",
             ] | random + " #RandomStat"}}
       - service: automation.turn_on
         entity_id: automation.random_house_stats
