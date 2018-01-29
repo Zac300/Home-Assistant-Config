@@ -62,7 +62,7 @@ sensor:
               {% endif %}
             {%- endfor -%}
           {%- endfor -%}
-      media_play_count:
+      media_player_count:
         friendly_name: 'Number of Media Players'
         value_template: >
           {%- set domains = ['media_player'] -%}
