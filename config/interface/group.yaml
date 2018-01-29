@@ -293,3 +293,8 @@ map:
     - camera.map_location
     - input_number.map_zoom
     - input_select.center_map_on
+location:
+  name: "Location"
+  entities:
+    - device_tracker.zac_nexus_6p
+    - device_tracker.tegan_nexus_6p
