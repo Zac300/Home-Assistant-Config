@@ -4,42 +4,33 @@ chromecast_audio_pause:
     service: media_player.media_play_pause
     data_template:
       entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
-        {% endif %}
+        {%- for device in states.media_player -%}
+          {%- if device.name == states.input_select.chromecast_audio_device.state -%}
+            {{ device.entity_id }}
+          {%- endif -%}
+        {%- endfor -%}
 chromecast_audio_stop:
   alias: Stop Audio on Chromecast
   sequence:
     service: media_player.media_stop
     data_template:
       entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
-        {% endif %}
+        {%- for device in states.media_player -%}
+          {%- if device.name == states.input_select.chromecast_audio_device.state -%}
+            {{ device.entity_id }}
+          {%- endif -%}
+        {%- endfor -%}
 chromecast_audio_volume:
   alias: Set Audio Volume on Chromecast
   sequence:
     service: media_player.volume_set
     data_template:
       entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
-        {% endif %}
+        {%- for device in states.media_player -%}
+          {%- if device.name == states.input_select.chromecast_audio_device.state -%}
+            {{ device.entity_id }}
+          {%- endif -%}
+        {%- endfor -%}
       volume_level: '{{  states.input_number.chromecast_audio_volume.state  }}'
 chromecast_audio_next_track:
   alias: Goto next track on Chromecast
@@ -47,25 +38,19 @@ chromecast_audio_next_track:
     service: media_player.media_next_track
     data_template:
       entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
-        {% endif %}
+        {%- for device in states.media_player -%}
+          {%- if device.name == states.input_select.chromecast_audio_device.state -%}
+            {{ device.entity_id }}
+          {%- endif -%}
+        {%- endfor -%}
 chromecast_audio_previous_track:
   alias: Goto previous track on Chromecast
   sequence:
     service: media_player.media_previous_track
     data_template:
       entity_id: >
-        {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
-        {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
-        {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
-        {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
-        {% endif %}
+        {%- for device in states.media_player -%}
+          {%- if device.name == states.input_select.chromecast_audio_device.state -%}
+            {{ device.entity_id }}
+          {%- endif -%}
+        {%- endfor -%}

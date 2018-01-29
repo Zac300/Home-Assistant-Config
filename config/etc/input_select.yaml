@@ -12,14 +12,14 @@ radio_station:
 chromecast_audio_device:
   name: 'Select Speaker(s):'
   options:
-   - kitchen_assistant
-   - kitchen_speaker
-   - kitchen_group
-   - lounge_assistant
-   - lounge_soundbar
-   - lounge_group
-   - whole_home
-  initial: kitchen_group
+   - Kitchen Assistant
+   - Kitchen Speaker
+   - Kitchen Group
+   - Lounge Assistant
+   - Lounge Soundbar
+   - Lounge Group
+   - Whole Home
+  initial: Kitchen Group
   icon: mdi:speaker-wireless
 google_music_playlist:
   name: 'Select Playlist:'

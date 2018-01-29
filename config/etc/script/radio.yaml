@@ -5,14 +5,11 @@ radio_play:
     -  service: media_player.play_media
        data_template:
          entity_id: >
-           {% if is_state("input_select.chromecast_audio_device", "lounge_assistant") %} media_player.lounge_assistant
-           {% elif is_state("input_select.chromecast_audio_device", "lounge_soundbar") %} media_player.lounge_soundbar
-           {% elif is_state("input_select.chromecast_audio_device", "lounge_group") %} media_player.lounge_group
-           {% elif is_state("input_select.chromecast_audio_device", "kitchen_assistant") %} media_player.kitchen_assistant
-           {% elif is_state("input_select.chromecast_audio_device", "kitchen_speaker") %} media_player.kitchen_speaker
-           {% elif is_state("input_select.chromecast_audio_device", "kitchen_group") %} media_player.kitchen_group
-           {% elif is_state("input_select.chromecast_audio_device", "whole_home") %} media_player.whole_home
-           {% endif %}
+           {%- for device in states.media_player -%}
+             {%- if device.name == states.input_select.chromecast_audio_device.state -%}
+               {{ device.entity_id }}
+             {%- endif -%}
+           {%- endfor -%}
          media_content_id: >
            {% if is_state("input_select.radio_station", "Nova 919") %} http://13743.live.streamtheworld.com/NOVA_919_AAC48.aac?src=tunein&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTEzMzc4NzY0LCJ0ZC1yZWciOmZhbHNlfQ.nh8pIgk1RxOzydmBmsFfUKkbWVwPovMQwszGhSmdNTw
            {% elif is_state("input_select.radio_station", "Fresh 92.7") %} http://live.fresh927.com.au/freshmp3
