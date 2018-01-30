@@ -1,0 +1,124 @@
+input_boolean:
+  landing_dim:
+    name: Landing Dim
+    initial: off
+
+script:
+  dim_light_landing:
+    sequence:
+
+      - condition: state
+        entity_id: input_boolean.landing_dim
+        state: 'on'
+    
+      - service: light.turn_on
+        entity_id: light.hallway
+        data_template:
+          brightness: '{{states.light.hallway.attributes.brightness - 10}}'
+
+      - service: script.turn_off
+        entity_id: script.dim_light_landing
+
+      - service: script.turn_on
+        entity_id: script.dim_light_landing
+
+  brighten_light_landing:
+    sequence:
+
+      - condition: state
+        entity_id: input_boolean.landing_dim
+        state: 'off'
+
+      - service: light.turn_on
+        entity_id: light.hallway
+        data_template:
+          brightness: '{{states.light.hallway.attributes.brightness + 10}}'
+  
+      - service: script.turn_off
+        entity_id: script.brighten_light_landing
+
+      - service: script.turn_on
+        entity_id: script.brighten_light_landing
+
+automation:
+  - alias: xiaomi landing brighten on
+    initial_state: 'on'
+    trigger:
+      - platform: event
+        event_type: flic_click
+        event_data:
+          button_name: flic_80e4da720c19
+          click_type: hold
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.landing_dim
+        state: 'off'
+      - condition: state
+        entity_id: light.hallway
+        state: 'on'
+    action:
+      - service: script.turn_on
+        entity_id: script.brighten_light_landing
+        
+  - alias: xiaomi landing brighten off
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.flic_80e4da720c19
+        from: 'on'
+        to: 'off'
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.landing_dim
+        state: 'off'
+      - condition: state
+        entity_id: light.hallway
+        state: 'on'
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.landing_dim
+        
+  - alias: xiaomi landing dim on
+    initial_state: 'on'
+    trigger:
+      - platform: event
+        event_type: flic_click
+        event_data:
+          button_name: flic_80e4da720c19
+          click_type: hold
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.landing_dim
+        state: 'on'
+      - condition: state
+        entity_id: light.hallway
+        state: 'on'
+    action:
+      - service: script.turn_on
+        entity_id: script.dim_light_landing
+  
+  - alias: xiaomi landing brighten off
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.flic_80e4da720c19
+        from: 'on'
+        to: 'off'
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.landing_dim
+        state: 'on'
+      - condition: state
+        entity_id: light.hallway
+        state: 'on'
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.landing_dim
