@@ -15,9 +15,16 @@ script:
         entity_id: light.hallway
         data_template:
           brightness: '{{states.light.hallway.attributes.brightness - 10}}'
+          
+      - service: script.turn_on
+        entity_id: script.dim_light_landing_loop
 
-      - service: script.turn_off
-        entity_id: script.dim_light_landing
+
+  dim_light_landing_loop:
+    sequence:
+
+      - delay:
+          seconds: 0.1
 
       - service: script.turn_on
         entity_id: script.dim_light_landing
@@ -34,8 +41,14 @@ script:
         data_template:
           brightness: '{{states.light.hallway.attributes.brightness + 10}}'
   
-      - service: script.turn_off
-        entity_id: script.brighten_light_landing
+      - service: script.turn_on
+        entity_id: script.brighten_light_landing_loop
+
+  brighten_light_landing_loop:
+    sequence:
+
+      - delay:
+          seconds: 0.1
 
       - service: script.turn_on
         entity_id: script.brighten_light_landing
