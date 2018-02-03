@@ -9,3 +9,17 @@
       state: 'on'
   action:
     service: script.read_weather_overview
+- alias: Updated selected Media Player internal name
+  trigger:
+    platform: state
+    entity_id: input_select.chromecast_audio_device
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.chromecast_audio_device_internal
+        option: >
+          {%- for device in states.media_player -%}
+            {%- if device.name == states.input_select.chromecast_audio_device.state -%}
+              {{ device.entity_id.split('.')[1]}}
+            {%- endif -%}
+          {%- endfor -%}

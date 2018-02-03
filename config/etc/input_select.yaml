@@ -18,8 +18,21 @@ chromecast_audio_device:
    - Lounge Assistant
    - Lounge Soundbar
    - Lounge Group
+   - Assistant Group
    - Whole Home
   initial: Kitchen Group
+  icon: mdi:speaker-wireless
+chromecast_audio_device_internal:
+  options:
+   - kitchen_assistant
+   - kitchen_speaker
+   - kitchen_group
+   - lounge_assistant
+   - lounge_soundbar
+   - lounge_group
+   - assistant_group
+   - whole_home
+  initial: kitchen_group
   icon: mdi:speaker-wireless
 google_music_playlist:
   name: 'Select Playlist:'
