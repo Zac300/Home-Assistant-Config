@@ -41,6 +41,7 @@ cast_view:
     - media_player.lounge_assistant
     - media_player.lounge_soundbar
     - media_player.lounge_group
+    - media_player.assistant_group
     - media_player.whole_home
 arlo_view:
   name: Arlo

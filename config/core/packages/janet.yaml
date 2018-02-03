@@ -84,8 +84,9 @@ input_select:
       - Lounge Assistant
       - Lounge Group
       - Lounge Soundbar
+      - Assistant Group
       - Whole Home
-    initial: Lounge Assistant
+    initial: Assistant Group
 
 
 script:
