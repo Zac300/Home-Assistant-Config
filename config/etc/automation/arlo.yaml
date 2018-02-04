@@ -1,16 +1,20 @@
 - id: arm_away_arlo_night
   alias: Arm Away at night
   trigger:
-    platform: time
-    at: '23:00:00'
+    platform: state
+    entity_id: binary_sensor.bayesian_sleeping
+    from: 'off'
+    to: 'on'
   action:
     service: alarm_control_panel.alarm_arm_away
     entity_id: alarm_control_panel.home
 - id: arm_home_arlo_morning
   alias: Arm Home in morning
   trigger:
-    platform: time
-    at: '06:00:00'
+    platform: state
+    entity_id: binary_sensor.bayesian_sleeping
+    from: 'on'
+    to: 'off'
   action:
     service: alarm_control_panel.alarm_arm_home
     entity_id: alarm_control_panel.home
