@@ -21,6 +21,8 @@ http: !include config/interface/http.yaml
 history:
 logbook: !include config/interface/logbook.yaml
 discovery:
+  ignore:
+    - sabnzbd
 panel_custom: !include config/interface/panel_custom.yaml
 zone: !include config/interface/zone.yaml
 
