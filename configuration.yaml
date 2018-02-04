@@ -47,6 +47,7 @@ binary_sensor: !include_dir_merge_list config/component/binary_sensor
 notify: !include_dir_merge_list config/component/notify
 google_assistant: !include_dir_merge_named config/component/google_assistant
 weather: !include_dir_merge_list config/component/weather
+sun:
 mqtt:
   broker: !secret mqtt_broker
   port: !secret mqtt_port

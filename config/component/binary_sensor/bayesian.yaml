@@ -1,0 +1,35 @@
+- platform: bayesian
+  prior: 0.1
+  name: 'Bayesian Sleeping'
+  probability_threshold: 0.95
+  observations:
+      - entity_id: 'group.location'
+        prob_given_true: 0.5
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'sun.sun'
+        prob_given_true: 0.7
+        prob_given_false: 0.3
+        platform: 'state'
+        to_state: 'below_horizon'
+      - entity_id: 'group.all_lights'
+        prob_given_true: 0.5
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'off'
+      - entity_id: 'media_player.lg_tv'
+        prob_given_true: 0.3
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'off'
+      - entity_id: 'media_player.sony_tv'
+        prob_given_true: 0.2
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'off'
+      - entity_id: 'switch.arlec_switch_3'
+        prob_given_true: 0.9
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'on'
