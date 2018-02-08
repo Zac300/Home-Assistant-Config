@@ -1,0 +1,44 @@
+xiaomi_aqara:
+  gateways:
+    - key: !secret xiaomi_aqara_gatway_1_key
+      mac: !secret xiaomi_aqara_gatway_1_mac
+      host: !secret xiaomi_aqara_gatway_1_host
+
+group:
+  xiaomi:
+    name: Xiaomi
+    view: yes
+    icon: mdi:github-face
+    entities:
+      - group.xiaomi_sensors
+
+  xiaomi_sensors:
+    name: Sensors
+    entities:
+      - light.gateway_light_7811dcb065a1
+      - switch.plug_158d00019d4661
+      - binary_sensor.switch_158d0001f41e1e
+      - binary_sensor.door_window_sensor_158d0001f366fe
+      - binary_sensor.motion_sensor_158d00016573cb
+      - sensor.temperature_158d000201d596
+
+
+homeassistant:
+  customize:
+    light.gateway_light_7811dcb065a1:
+      friendly_name: Xiaomi Gateway Light
+
+    switch.plug_158d00019d4661:
+      friendly_name: Xiaomi Plug
+
+    binary_sensor.switch_158d0001f41e1e:
+      friendly_name: Xiaomi Button
+
+    binary_sensor.door_window_sensor_158d0001f366fe:
+      friendly_name: Xiaomi Door Sensor
+
+    binary_sensor.motion_sensor_158d00016573cb:
+      friendly_name: Xiaomi Motion Sensor
+
+    sensor.temperature_158d000201d596:
+      friendly_name: Xiaomi Temperature Sensor

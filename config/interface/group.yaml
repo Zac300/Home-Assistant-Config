@@ -269,6 +269,7 @@ people:
     - sensor.tegan_address
     - sensor.tegan_phone_battery
     - binary_sensor.bayesian_sleeping
+    - input_boolean.sarge_at_abt
 ### WORK TRAVEL GROUP ###
 travel_time:
   name: Travel time

@@ -14,6 +14,7 @@ Home Assistant Version: 0.62.1
 | ----- | ----------------------------------------------------- | ---- |
 | 8     | LIFX A19                                              | [(LIFX)](https://www.lifx.com.au/products/lifx) |
 | 3     | LIFX Z Strip                                          | [(LIFX)](https://www.lifx.com.au/products/lifx-z) |
+| 1     | Xiaomi Gateway Light                                  | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
 
 #### Sensor / Switch
 | Qty   | Name                                                  | Link |
@@ -22,6 +23,11 @@ Home Assistant Version: 0.62.1
 | 1     | Broadlink RM Mini 3                                   | [(eBay)](https://www.ebay.com.au/sch/i.html?_odkw=broadlink+rm+mini+3&_osacat=0&_from=R40&_trksid=p2045573.m570.l1313.TR0.TRC0.H0.TRS0&_nkw=broadlink+rm+mini+3&_sacat=0) |
 | 1     | Broadlink RM Pro                                      | [(eBay)](https://www.ebay.com.au/sch/i.html?_odkw=broadlink+rm+pro+3&_osacat=0&_from=R40&_trksid=p2045573.m570.l1313.TR3.TRC2.A0.H0.Xbroadlink+rm+pro.TRS0&_nkw=broadlink+rm+pro&_sacat=0) |
 | 10    | flic smart button                                     | [(flic)](https://flic.io/shop/flic-1pack) |
+| 1     | Xiaomi button                                         | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
+| 1     | Xiaomi Door and Window sensor                         | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
+| 1     | Xiaomi Motion sensor                                  | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
+| 1     | Xiaomi Temperature and Humidity sensor                | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
+| 1     | Xiaomi Wall Power Plug                                | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
 
 #### Climate
 | Qty   | Name                                                  | Link |
@@ -53,6 +59,7 @@ Home Assistant Version: 0.62.1
 | ----- | ----------------------------------------------------- | ---- |
 | 1     | Netgear WNDR3800 Router                               | [(Netgear)](https://www.netgear.com/support/product/WNDR3800.aspx) |
 | 1     | Ubiquiti UniFi LR Access Point                        | [(Ubiquiti)](https://store.ubnt.com/products/unifi-ap-1) |
+| 1     | Xiaomi Gateway                                        | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
 
 #### Location
 | Qty   | Name                                                  | Link |
