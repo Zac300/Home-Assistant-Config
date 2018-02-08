@@ -1,8 +1,8 @@
 - platform: broadlink
-  host: !secret broadlink_pro_host
-  mac: !secret broadlink_pro_mac
+  host: !secret broadlink_lounge_room_host
+  mac: !secret broadlink_lounge_room_mac
   timeout: 15
-  friendly_name: RM Pro
+  friendly_name: RM Pro Lounge Room
   switches:
     # Arlec Switches
     arlec_switch_1:
@@ -17,6 +17,11 @@
       friendly_name: "Arlec Switch 3"
       command_on: !secret switch_arlec_3_command_on
       command_off: !secret switch_arlec_3_command_off
+- platform: broadlink
+  host: !secret broadlink_living_room_host
+  mac: !secret broadlink_living_room_mac
+  timeout: 15
+  friendly_name: RM Pro Living Room
 - platform: broadlink
   host: !secret broadlink_mini_host
   mac: !secret broadlink_mini_mac

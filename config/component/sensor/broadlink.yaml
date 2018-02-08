@@ -1,6 +1,7 @@
 - platform: broadlink
+  name: Broadlink Lounge Room
   update_interval: 60
-  host: !secret broadlink_pro_host
-  mac: !secret broadlink_pro_mac
+  host: !secret broadlink_lounge_room_host
+  mac: !secret broadlink_lounge_room_mac
   monitored_conditions:
     - temperature

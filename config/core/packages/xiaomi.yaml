@@ -21,7 +21,7 @@ group:
       - binary_sensor.door_window_sensor_158d0001f366fe
       - binary_sensor.motion_sensor_158d00016573cb
       - sensor.temperature_158d000201d596
-
+      - sensor.humidity_158d000201d596
 
 homeassistant:
   customize:
@@ -42,3 +42,6 @@ homeassistant:
 
     sensor.temperature_158d000201d596:
       friendly_name: Xiaomi Temperature Sensor
+
+    sensor.humidity_158d000201d596:
+      friendly_name: Xiaomi Humidity Sensor
