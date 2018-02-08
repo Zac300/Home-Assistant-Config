@@ -21,7 +21,7 @@ Home Assistant Version: 0.62.1
 | ----- | ----------------------------------------------------- | ---- |
 | 3     | Arlec Remote Controlled Power Outlet                  | [(Bunnings)](https://www.bunnings.com.au/arlec-remote-controlled-power-outlet_p4331763) |
 | 1     | Broadlink RM Mini 3                                   | [(eBay)](https://www.ebay.com.au/sch/i.html?_odkw=broadlink+rm+mini+3&_osacat=0&_from=R40&_trksid=p2045573.m570.l1313.TR0.TRC0.H0.TRS0&_nkw=broadlink+rm+mini+3&_sacat=0) |
-| 1     | Broadlink RM Pro                                      | [(eBay)](https://www.ebay.com.au/sch/i.html?_odkw=broadlink+rm+pro+3&_osacat=0&_from=R40&_trksid=p2045573.m570.l1313.TR3.TRC2.A0.H0.Xbroadlink+rm+pro.TRS0&_nkw=broadlink+rm+pro&_sacat=0) |
+| 2     | Broadlink RM Pro                                      | [(eBay)](https://www.ebay.com.au/sch/i.html?_odkw=broadlink+rm+pro+3&_osacat=0&_from=R40&_trksid=p2045573.m570.l1313.TR3.TRC2.A0.H0.Xbroadlink+rm+pro.TRS0&_nkw=broadlink+rm+pro&_sacat=0) |
 | 10    | flic smart button                                     | [(flic)](https://flic.io/shop/flic-1pack) |
 | 1     | Xiaomi button                                         | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |
 | 1     | Xiaomi Door and Window sensor                         | [(GearBest)](https://www.gearbest.com/alarm-systems/pp_616359.html) |

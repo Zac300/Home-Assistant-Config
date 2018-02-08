@@ -1,12 +1,12 @@
 - platform: broadlink
   name: Sharp Split System
-  host: !secret broadlink_mini_host
-  mac: !secret broadlink_mini_mac
+  host: !secret broadlink_living_room_host
+  mac: !secret broadlink_living_room_mac
   ircodes_ini: 'config/component/climate/broadlink_climate_codes/sharp_split_system.ini'
   min_temp: 20
   max_temp: 26
-  target_temp: 23
-  temp_sensor: sensor.broadlink_sensor_temperature
+  target_temp: 24
+  temp_sensor: sensor.temperature_158d000201d596
   default_operation: 'off'
   default_fan_mode: auto
   customize:

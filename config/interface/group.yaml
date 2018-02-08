@@ -89,6 +89,8 @@ lounge_hall:
    - device_tracker.lounge_chromecast_tv
    - device_tracker.lounge_chromecast_soundbar
    - device_tracker.lounge_google_home
+   - sensor.broadlink_lounge_room_temperature
+   - binary_sensor.door_window_sensor_158d0001f366fe
 kitchen_sink:
  name: Kitchen Sink
  entities:
@@ -102,17 +104,21 @@ kitchen_living:
   - light.sink_left
   - light.sink_centre
   - light.sink_right
+  - light.gateway_light_7811dcb065a1
   - device_tracker.sony_tv
   - device_tracker.elgato_eyetv
   - device_tracker.living_chromecast_tv
   - device_tracker.bw_a7
   - device_tracker.kitchen_chromecast_speaker
+  - sensor.temperature_158d000201d596
+  - sensor.humidity_158d000201d596
 bedroom:
  name: Bedroom
  entities:
   - light.bedside_lamp
   - light.bedroom
   - switch.arlec_switch_3
+  - switch.plug_158d00019d4661
 all_lights:
  name: All Lights
  entities:
@@ -126,6 +132,7 @@ all_lights:
   - light.hallway
   - light.bedroom
   - light.bedside_lamp
+  - light.gateway_light_7811dcb065a1
 arlo:
  name: Arlo
  entities:
