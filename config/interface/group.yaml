@@ -105,6 +105,7 @@ kitchen_living:
   - light.sink_centre
   - light.sink_right
   - light.gateway_light_7811dcb065a1
+  - switch.plug_158d00019d4661
   - device_tracker.sony_tv
   - device_tracker.elgato_eyetv
   - device_tracker.living_chromecast_tv
@@ -118,7 +119,6 @@ bedroom:
   - light.bedside_lamp
   - light.bedroom
   - switch.arlec_switch_3
-  - switch.plug_158d00019d4661
 all_lights:
  name: All Lights
  entities:
@@ -275,7 +275,8 @@ people:
     - device_tracker.tegan_nexus_6p
     - sensor.tegan_address
     - sensor.tegan_phone_battery
-    - binary_sensor.bayesian_sleeping
+    - binary_sensor.sleeping
+    - binary_sensor.sarge_away
     - input_boolean.sarge_at_abt
 ### WORK TRAVEL GROUP ###
 travel_time:

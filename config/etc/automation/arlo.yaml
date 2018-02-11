@@ -2,7 +2,7 @@
   alias: Arm Away at night
   trigger:
     platform: state
-    entity_id: binary_sensor.bayesian_sleeping
+    entity_id: binary_sensor.sleeping
     from: 'off'
     to: 'on'
   action:
@@ -12,7 +12,7 @@
   alias: Arm Home in morning
   trigger:
     platform: state
-    entity_id: binary_sensor.bayesian_sleeping
+    entity_id: binary_sensor.sleeping
     from: 'on'
     to: 'off'
   action:

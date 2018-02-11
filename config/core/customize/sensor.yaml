@@ -6,3 +6,7 @@ sensor.center_map_on:
   hidden: true
 sensor.map_markers:
   hidden: true
+binary_sensor.sleeping:
+  icon: mdi:hotel
+binary_sensor.sarge_away:
+  icon: mdi:paw

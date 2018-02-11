@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    sarge_away:
+      friendly_name: "Sarge is away"
+      value_template: >-
+        {{ states.device_tracker.zac_nexus_6p.state != "home" and states.device_tracker.tegan_nexus_6p.state != "home" and states.binary_sensor.door_window_sensor_158d0001f366fe.state == "on"  }}
