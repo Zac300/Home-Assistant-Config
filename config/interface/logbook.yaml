@@ -1,5 +1,7 @@
   exclude:
     entities:
+      - sun.sun
+      - sensor.last_boot
       - sensor.cpu_temperature
       - sensor.cpu_use
       - sensor.disk_free_
@@ -26,3 +28,5 @@
       - sensor.pws_temp_low_1d_c
       - sensor.pws_temp_high_1d_c
       - sensor.pws_temp_c
+
+

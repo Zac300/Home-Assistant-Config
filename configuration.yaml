@@ -10,6 +10,7 @@
 ##################
 homeassistant: !include config/core/homeassistant.yaml
 logger: !include config/core/logger.yaml
+recorder: !include config/core/recorder.yaml
 
 ###################################
 ## Web interface UX and security ##
