@@ -232,7 +232,7 @@ systemmonitor:
     - sensor.network_in_enxb827eb6629fc
     - sensor.network_out_enxb827eb6629fc
     - sensor.last_boot
-    - sensor.since_last_boot
+    - sensor.since_last_boot_templated
 all_switches:
   name: Switch
   entities:

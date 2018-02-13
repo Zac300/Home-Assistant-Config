@@ -10,3 +10,5 @@ binary_sensor.sleeping:
   icon: mdi:hotel
 binary_sensor.sarge_away:
   icon: mdi:paw
+sensor.since_last_boot_templated:
+  icon: mdi:timetable
