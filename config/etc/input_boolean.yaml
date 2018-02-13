@@ -16,7 +16,3 @@ lounge_party_mode:
 push_notification_distance_tegan_to_zac:
   name: Send Notifications - Tegan to Zac
   icon: mdi:message-alert
-sarge_at_abt:
-  name: Sarge at ABT
-  icon: mdi:paw
-  initial: off
