@@ -222,15 +222,15 @@ speedtest:
 systemmonitor:
   name: System monitor
   entities:
-    - sensor.cpu_used
+    - sensor.processor_use
+    - sensor.disk_use_percent_
     - sensor.disk_free_
-    - sensor.disk_used_
-    - sensor.disk_used__2
-    - sensor.ram_available
-    - sensor.ram_used
-    - sensor.ram_used_2
-    - sensor.received_enxb827eb6629fc
-    - sensor.sent_enxb827eb6629fc
+    - sensor.disk_use_
+    - sensor.memory_use_percent
+    - sensor.memory_free
+    - sensor.memory_use
+    - sensor.network_in_enxb827eb6629fc
+    - sensor.network_out_enxb827eb6629fc
     - sensor.last_boot
     - sensor.since_last_boot
 all_switches:

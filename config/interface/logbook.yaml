@@ -1,19 +1,23 @@
   exclude:
     entities:
       - sun.sun
-      - sensor.last_boot
-      - sensor.cpu_temperature
-      - sensor.cpu_use
+      - sensor.processor_use
+      - sensor.disk_use_percent_
       - sensor.disk_free_
       - sensor.disk_use_
-      - sensor.ram_use
+      - sensor.memory_use_percent
+      - sensor.memory_free
+      - sensor.memory_use
+      - sensor.network_in_enxb827eb6629fc
+      - sensor.network_out_enxb827eb6629fc
+      - sensor.last_boot
+      - sensor.since_last_boot
       - sensor.sabnzbd_disk
       - sensor.sabnzbd_disk_free
       - sensor.sabnzbd_left
       - sensor.sabnzbd_queue
       - sensor.sabnzbd_speed
       - sensor.sabnzbd_status
-      - sensor.since_last_boot
       - sensor.transmission_down_speed
       - sensor.transmission_down_speed_kbps
       - sensor.transmission_status
@@ -28,5 +32,6 @@
       - sensor.pws_temp_low_1d_c
       - sensor.pws_temp_high_1d_c
       - sensor.pws_temp_c
+
 
 
