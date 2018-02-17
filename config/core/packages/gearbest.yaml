@@ -1,0 +1,12 @@
+sensor:
+  - platform: gearbest
+    currency: AUD
+    items:
+      - id: 257677
+        name: Xiaomi Smart Door and Windows Sensor
+      - id: 344665
+        name: Xiaomi Smart Temperature and Humidity Sensor
+      - id: 344666
+        name: Xiaomi Smart WiFi Socket
+      - id: 361555
+        name: Xiaomi Yeelight Smart LED Bulb
