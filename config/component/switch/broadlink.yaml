@@ -17,6 +17,10 @@
       friendly_name: "Arlec Switch 3"
       command_on: !secret switch_arlec_3_command_on
       command_off: !secret switch_arlec_3_command_off
+    display_cabinet:
+      friendly_name: "Display Cabinet"
+      command_on: !secret switch_display_cabinet_command_on
+      command_off: !secret switch_display_cabinet_command_off
 - platform: broadlink
   host: !secret broadlink_living_room_host
   mac: !secret broadlink_living_room_mac

@@ -9,6 +9,9 @@ watch_tv:
     - service: light.turn_on
       data:
         entity_id: light.corner_lamp
+    - service: homeassistant.turn_on
+      data:
+        entity_id: switch.display_cabinet
     - condition: state
       entity_id: media_player.lg_tv
       state: 'off'
@@ -19,6 +22,9 @@ bedtime:
     - service: light.turn_off
       data:
         entity_id: group.lounge_hall
+    - service: homeassistant.turn_off
+      data:
+        entity_id: switch.display_cabinet
     - service: light.turn_on
       data:
         entity_id: light.hallway
