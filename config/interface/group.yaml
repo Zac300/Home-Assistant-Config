@@ -85,7 +85,7 @@ lounge_hall:
    - light.corner_lamp
    - light.tv
    - light.cabinet
-   - switch.display_cabinet
+   - light.display_cabinet
    - device_tracker.lounge_lg_tv
    - device_tracker.lounge_chromecast_tv
    - device_tracker.lounge_chromecast_soundbar

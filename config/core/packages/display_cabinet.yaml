@@ -1,0 +1,100 @@
+input_select:
+  display_cabinet_brightness:
+    name: Display Cabinet Brightness
+    icon: mdi:table-column
+    initial: 80
+    options:
+     - 10
+     - 40
+     - 80
+     - 100
+
+sensor:
+  - platform: template
+    sensors:
+      display_cabinet_10_percent:
+        value_template: !secret display_cabinet_10_percent
+  - platform: template
+    sensors:
+      display_cabinet_40_percent:
+        value_template: !secret display_cabinet_40_percent
+  - platform: template
+    sensors:
+      display_cabinet_80_percent:
+        value_template: !secret display_cabinet_80_percent
+  - platform: template
+    sensors:
+      display_cabinet_100_percent:
+        value_template: !secret display_cabinet_100_percent
+
+light:
+  - platform: template
+    lights:
+      display_cabinet:
+        friendly_name: "Display Cabinet"
+        level_template: "{{ (((states.input_select.display_cabinet_brightness.state|int) / 100)|float * 255)|int }}"
+        value_template: >-
+          {% if is_state('switch.display_cabinet', 'on') %} on
+          {% else %} off
+          {% endif %}
+        turn_on:
+          service: switch.turn_on
+          data:
+            entity_id: switch.display_cabinet
+        turn_off:
+          service: switch.turn_off
+          data:
+            entity_id: switch.display_cabinet
+        set_level:
+          service: input_select.select_option
+          data_template:
+            entity_id: input_select.display_cabinet_brightness
+            option: >
+              {% set new_brightness = brightness/255*100|int%}
+              {% if new_brightness > 80 %} 100
+              {% elif new_brightness >40 %} 80
+              {% elif new_brightness >10 %} 40
+              {% else %} 10
+              {% endif %}
+
+script:
+  change_display_cabinet_brightness:
+    sequence:
+      - service: !secret broadlink_lounge_room_send_packet
+        data_template:
+          packet:
+          - >
+            {% if is_state("input_select.display_cabinet_brightness","10") %} {{states.sensor.display_cabinet_10_percent.state}}
+            {% elif is_state("input_select.display_cabinet_brightness","40") %} {{states.sensor.display_cabinet_40_percent.state}}
+            {% elif is_state("input_select.display_cabinet_brightness","80") %} {{states.sensor.display_cabinet_80_percent.state}}
+            {% else %} {{states.sensor.display_cabinet_100_percent.state}}
+            {% endif %}  
+
+automation:
+  - alias: Force additional Display Cabinet switch
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: light.display_cabinet
+    action:
+      service_template: >
+        {% if is_state('switch.display_cabinet', 'on') %} switch.turn_on
+        {% else %} switch.turn_off
+        {% endif %}
+      entity_id: switch.display_cabinet
+  - alias: Set Display Cabinet brightness when turned on
+    hide_entity: True
+    trigger:
+      platform: state
+      entity_id: switch.display_cabinet
+      from: 'off'
+      to: 'on'
+    action:
+      - service: script.change_display_cabinet_brightness
+  - alias: Change Display Cabinet Brightness
+    hide_entity: True
+    trigger:
+      - platform: state
+        entity_id: input_select.display_cabinet_brightness
+    action:
+      - service: script.change_display_cabinet_brightness

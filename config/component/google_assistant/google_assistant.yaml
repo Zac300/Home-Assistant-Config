@@ -18,6 +18,8 @@ entity_config:
     expose: false
   switch.google_music:
     expose: false
+  switch.display_cabinet:
+    expose: false
   media_player.sony_tv:
     expose: true
     name: Sony TV
@@ -120,3 +122,7 @@ entity_config:
       - Volume down Lounge Room TV
       - Decrease LG TV volume
       - Decrease Lounge Room TV volume
+  light.display_cabinet:
+    expose: true
+    name: Display Cabinet
+    type: light
