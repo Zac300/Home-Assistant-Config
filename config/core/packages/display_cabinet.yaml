@@ -1,3 +1,14 @@
+homeassistant:
+  customize:
+    sensor.display_cabinet_10_percent:
+      hidden: true
+    sensor.display_cabinet_40_percent:
+      hidden: true
+    sensor.display_cabinet_80_percent:
+      hidden: true
+    sensor.display_cabinet_100_percent:
+      hidden: true
+
 input_select:
   display_cabinet_brightness:
     name: Display Cabinet Brightness
