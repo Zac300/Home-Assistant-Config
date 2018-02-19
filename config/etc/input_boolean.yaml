@@ -16,3 +16,6 @@ lounge_party_mode:
 push_notification_distance_tegan_to_zac:
   name: Send Notifications - Tegan to Zac
   icon: mdi:message-alert
+medication_taken_today:
+  name: Medication taken today
+  icon: mdi:pill

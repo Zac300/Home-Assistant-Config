@@ -278,6 +278,7 @@ people:
     - sensor.tegan_phone_battery
     - binary_sensor.sleeping
     - binary_sensor.sarge_away
+    - input_boolean.medication_taken_today
 ### WORK TRAVEL GROUP ###
 travel_time:
   name: Travel time
