@@ -11,7 +11,6 @@ entity_config:
   switch.arlec_switch_3:
     expose: true
     name: Sound Machine
-    type: switch
   switch.soundbar_toggle_input:
     expose: false
   switch.sony_tv_power_toggle:
@@ -23,15 +22,12 @@ entity_config:
   media_player.sony_tv:
     expose: true
     name: Sony TV
-    type: media_player
   media_player.lg_tv:
     expose: true
     name: LG TV
-    type: media_player
   climate.sharp_split_system:
     expose: true
     name: Sharp Split System
-    type: climate
     aliases:
       - Living Room Air Conditioner
       - Living Room A C
@@ -39,14 +35,12 @@ entity_config:
   fan.lounge:
     expose: true
     name: Lounge Fan
-    type: fan
     aliases:
       - Fan
       - Lounge Room Fan
   script.watch_tv:
     expose: true
     name: Watch TV
-    type: script
     aliases:
       - Watch a movie
       - Couch time
@@ -54,14 +48,12 @@ entity_config:
   script.bedtime:
     expose: true
     name: Bedtime
-    type: script
     aliases:
       - Time to sleep
       - Go to bed
   script.living_room_tv_volume_up:
     expose: true
     name: Living Room TV volume up
-    type: script
     aliases:
       - Turn up Sony TV
       - Louder Living Room TV
@@ -77,7 +69,6 @@ entity_config:
   script.living_room_tv_volume_down:
     expose: true
     name: Living Room TV volume down
-    type: script
     aliases:
       - Turn down Sony TV
       - Quieter Living Room TV
@@ -93,7 +84,6 @@ entity_config:
   script.lounge_room_tv_volume_up:
     expose: true
     name: Lounge Room TV volume up
-    type: script
     aliases:
       - Turn up LG TV
       - Louder Lounge Room TV
@@ -109,7 +99,6 @@ entity_config:
   script.lounge_room_tv_volume_down:
     expose: true
     name: Lounge Room TV volume down
-    type: script
     aliases:
       - Turn down LG TV
       - Quieter Lounge Room TV
@@ -125,4 +114,3 @@ entity_config:
   light.display_cabinet:
     expose: true
     name: Display Cabinet
-    type: light
