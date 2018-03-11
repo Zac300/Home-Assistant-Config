@@ -310,3 +310,18 @@ location:
   entities:
     - device_tracker.zac_nexus_6p
     - device_tracker.tegan_nexus_6p
+all_media_players:
+  name: "Media Players"
+  entities:
+    - media_player.lg_tv
+    - media_player.lounge_tv
+    - media_player.lounge_soundbar
+    - media_player.lounge_assistant
+    - media_player.lounge_group
+    - media_player.sony_tv
+    - media_player.living_room_tv
+    - media_player.kitchen_speaker
+    - media_player.kitchen_assistant
+    - media_player.kitchen_group
+    - media_player.assistant_group
+    - media_player.whole_home

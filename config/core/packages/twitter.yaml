@@ -26,6 +26,15 @@ sensor:
     duration:
       hours: 24
 
+  - platform: history_stats
+    name: Media Players time
+    entity_id: group.all_media_players
+    state: 'on'
+    type: time
+    end: '{{ now() }}'
+    duration:
+      hours: 24
+
 ### Building some interesting stats for tweeting. ###
   - platform: template
     sensors:
@@ -166,7 +175,7 @@ automation:
           tweet: >
             {{ [
             "The number of #Flic presses today was {{states.sensor.flic_presses.state}}",
-            "The #lifx lights where on for about {{states.sensor.lifx_lights_time.attributes.value}} yesterday.",
+            "The #lifx lights where on for {{states.sensor.lifx_lights_time.attributes.value}} yesterday.",
             "{{states.sensor.captured_today_frontyard.state}} frontdoor events were captured today by #Arlo.",
             "The Pi has been running for {{states.sensor.since_last_boot_templated.state}}",
             "I am running Home Assistant version {{states.sensor.current_version.state}} (https://github.com/Zac300/Home-Assistant-Config)",
@@ -177,6 +186,7 @@ automation:
             "There are currently {{((states.sensor.sensor_count.state | int) + (states.sensor.binary_sensor_count.state | int))}} sensors feeding my Home Assistant smart home (https://github.com/Zac300/Home-Assistant-Config)",
             "{{states.sensor.automation_count.state}} automations and {{states.sensor.script_count.state}} scripts make my home smart (https://github.com/Zac300/Home-Assistant-Config)",
             "{{states.sensor.media_player_count.state}} media players ensure I can party late into the night with Home Assistant (https://github.com/Zac300/Home-Assistant-Config)",
+            "My media players where on for {{states.sensor.media_players_time.attributes.value}} yesterday.",
             ] | random + " #RandomStat"}}
       - service: automation.turn_on
         entity_id: automation.random_house_stats
