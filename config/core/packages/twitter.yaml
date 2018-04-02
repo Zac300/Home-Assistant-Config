@@ -176,10 +176,8 @@ automation:
             {{ [
             "The number of #Flic presses today was {{states.sensor.flic_presses.state}}",
             "The #lifx lights where on for {{states.sensor.lifx_lights_time.attributes.value}} yesterday.",
-            #"{{states.sensor.captured_today_frontyard.state}} frontdoor events were captured today by #Arlo.",
             "The Pi has been running for {{states.sensor.since_last_boot_templated.state}}",
             "I am running Home Assistant version {{states.sensor.current_version.state}} (https://github.com/Zac300/Home-Assistant-Config)",
-            #"#Arlo captured {{states.sensor.captured_today_backyard.state}} backyard events in the last 24 hours.",
             "Outside is {{states.sensor.dark_sky_temperature.state}}{{states.sensor.dark_sky_apparent_temperature.attributes.unit_of_measurement}}. Currently inside the temperature is {{states.sensor.temperature_158d000201d596.state}}{{states.sensor.temperature_158d000201d596.attributes.unit_of_measurement}}.",
             "My Average #iiNet internet speeds are Download: {{states.sensor.speedtest_download.state}} Mbit/s & Upload {{states.sensor.speedtest_upload.state}} Mbit/s. #NBN",
             "Home Assistant has been running for {{states.sensor.uptime.state}} days. (https://github.com/Zac300/Home-Assistant-Config)",
