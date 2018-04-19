@@ -19,3 +19,6 @@ push_notification_distance_tegan_to_zac:
 medication_taken_today:
   name: Medication taken today
   icon: mdi:pill
+holiday_mode:
+  name: Holiday mode
+  icon: mdi:airplane

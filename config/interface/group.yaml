@@ -279,6 +279,7 @@ people:
     - binary_sensor.sleeping
     - binary_sensor.sarge_away
     - input_boolean.medication_taken_today
+    - input_boolean.holiday_mode
 ### WORK TRAVEL GROUP ###
 travel_time:
   name: Travel time
