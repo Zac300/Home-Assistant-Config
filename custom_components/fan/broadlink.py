@@ -17,6 +17,7 @@ from base64 import b64encode, b64decode
 LIMITED_SUPPORT = SUPPORT_SET_SPEED
 SUPPORT_SPEED_AND_DIRECTION = SUPPORT_SET_SPEED | SUPPORT_DIRECTION
 
+REQUIREMENTS = ['broadlink==0.8.0']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -63,7 +64,7 @@ def setup_platform(hass, config, add_devices_callback, discovery_info=None):
     
     import broadlink
     
-    broadlink_device = broadlink.rm((ip_addr, 80), mac_addr)
+    broadlink_device = broadlink.rm((ip_addr, 80), mac_addr, None)
     broadlink_device.timeout = config.get(CONF_TIMEOUT)
 
     try:
