@@ -1,5 +1,6 @@
 .uuid
 .HA_VERSION
+.google_maps_location_sharing.cookies
 secrets.yaml
 known_devices.yaml
 *.log
