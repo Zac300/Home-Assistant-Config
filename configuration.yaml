@@ -59,6 +59,13 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
   certificate: !secret mqtt_certificate  
+cloud:
+  google_actions:
+    filter:
+      exclude_domains:
+        - switch
+        - light
+
 
 #######################################
 ## My automations/scripts/scenes/etc ##

@@ -23,7 +23,7 @@ from homeassistant.core import callback
 from configparser import ConfigParser
 from base64 import b64encode, b64decode
 
-REQUIREMENTS = ['broadlink==0.8.0']
+REQUIREMENTS = ['broadlink==0.9.0']
 
 _LOGGER = logging.getLogger(__name__)
 
