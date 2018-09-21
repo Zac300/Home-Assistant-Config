@@ -114,3 +114,8 @@ entity_config:
   light.display_cabinet:
     expose: true
     name: Display Cabinet
+  light.living_room_lamp:
+    expose: true
+    name: Living Room Lamp
+    aliases:
+      - Suellen Lamp

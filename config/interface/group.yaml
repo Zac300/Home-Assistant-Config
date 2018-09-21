@@ -105,7 +105,7 @@ kitchen_living:
   - light.sink_left
   - light.sink_centre
   - light.sink_right
-  - light.gateway_light_7811dcb065a1
+  - light.living_room_lamp
   - switch.plug_158d00019d4661
   - device_tracker.sony_tv
   - device_tracker.elgato_eyetv
@@ -126,6 +126,7 @@ all_lights:
   - light.sink_left
   - light.sink_centre
   - light.sink_right
+  - light.living_room_lamp
   - light.tv
   - light.cabinet
   - light.corner_lamp
@@ -238,7 +239,7 @@ all_switches:
   name: Switch
   entities:
 #    - switch.arlec_switch_1
-#    - switch.arlec_switch_2
+    - switch.arlec_switch_2
     - switch.arlec_switch_3
 ### RADIO GROUP ###
 radio:
@@ -326,3 +327,7 @@ all_media_players:
     - media_player.kitchen_group
     - media_player.assistant_group
     - media_player.whole_home
+study:
+  name: "Study"
+  entities:
+    - light.gateway_light_7811dcb065a

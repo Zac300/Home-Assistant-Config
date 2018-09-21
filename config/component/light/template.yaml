@@ -1,0 +1,12 @@
+- platform: template
+  lights:
+    living_room_lamp:
+      friendly_name: "Living Room Lamp"
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.arlec_switch_2
+      turn_off:
+        service: switch.turn_off          
+        data:
+          entity_id: switch.arlec_switch_2
