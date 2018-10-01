@@ -18,15 +18,6 @@ switch_view:
     - fan.lounge
     - media_player.sony_tv
     - media_player.lg_tv
-travel_view:
-  name: Travel
-  view: yes
-  icon: mdi:google-maps
-  entities:
-    - group.map
-    - group.travel_time
-    - group.device_tracker_street_view
-    - group.send_push_updates
 cast_view:
   name: Cast
   view: yes
@@ -281,32 +272,10 @@ people:
     - binary_sensor.sarge_away
     - input_boolean.medication_taken_today
     - input_boolean.holiday_mode
-### WORK TRAVEL GROUP ###
-travel_time:
-  name: Travel time
-  entities:
-    - sensor.zac_to_tegan
-    - sensor.zac_to_home
-    - sensor.zac_to_work
-    - sensor.tegan_to_zac
-    - sensor.tegan_to_home
-    - sensor.tegan_to_work
-### MAP GROUPS ###
-device_tracker_street_view:
-  name: "Street Views"
-  entities:
-    - camera.street_view_zac
-    - camera.street_view_tegan
 send_push_updates:
   name: "Travel Updates"
   entities:
     - input_boolean.push_notification_distance_tegan_to_zac
-map:
-  name: "Map"
-  entities:
-    - camera.map_location
-    - input_number.map_zoom
-    - input_select.center_map_on
 location:
   name: "Location"
   entities:

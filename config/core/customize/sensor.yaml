@@ -1,11 +1,3 @@
-sensor.google_staticmap_api_key:
-  hidden: true
-sensor.google_streetview_api_key:
-  hidden: true
-sensor.center_map_on:
-  hidden: true
-sensor.map_markers:
-  hidden: true
 binary_sensor.sleeping:
   icon: mdi:hotel
 binary_sensor.sarge_away:
